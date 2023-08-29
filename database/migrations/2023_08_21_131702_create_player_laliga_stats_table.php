@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer('in_substitutes')->nullable();
             $table->integer('out_substitutes')->nullable();
             $table->integer('bench_substitutes')->nullable();
-            $table->integer('total_shots')->nullable();
             $table->integer('total_on')->nullable();
             $table->integer('total_goals')->nullable();
             $table->integer('conceded_goals')->nullable();
