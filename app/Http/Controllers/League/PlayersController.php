@@ -22,8 +22,8 @@ class PlayersController extends Controller
      */
     public function index(): Renderable
     {
-//        $players = players::get();
-//        $playersStatic = playerLaligaStats::get();
+        $players = players::get();
+        $playersStatic = playerLaligaStats::get();
 
         $lastApiRequestDate = Cache::get('last_api_request_date');
         if (!$lastApiRequestDate || now()->diffInHours($lastApiRequestDate) >= 24) {
@@ -103,6 +103,6 @@ class PlayersController extends Controller
 
             Cache::put('last_api_request_date', now(), 1440); // Zapisz datę ostatniego zapytania (24 godziny w minutach)
         }
-        return view('league.players');
+        return view('league.players', compact('players', 'playersStatic'));
     }
 }
