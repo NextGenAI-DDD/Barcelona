@@ -16,7 +16,7 @@
                                         <h4 class="mt-1 mb-5 pb-1">Zostań naszym Cules</h4>
                                     </div>
 
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row mb-3">
@@ -98,10 +98,10 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="photo" class="col-md-4 col-form-label text-md-end">{{ __('Photo') }}</label>
+                                            <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Photo') }}</label>
 
                                             <div class="col-md-6">
-                                                <input id="photo" type="file" class="form-control" name="photo">
+                                                <input id="avatar" type="file" class="form-control" name="avatar">
 
                                             </div>
                                         </div>
