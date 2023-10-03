@@ -108,11 +108,12 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Strona główna</a>
             <a href="/about" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">O nas</a>
-            <a href="/service" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">Serwis</a>
+            <a href="/players" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">Zawodnicy</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('404') ? 'active' : '' }}" data-bs-toggle="dropdown">Strony</a>
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('404') ? 'active' : '' }}" data-bs-toggle="dropdown">Liga</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="/404" class="dropdown-item">404 Page</a>
+                    <a href="/table" class="dropdown-item">Tabela La Liga</a>
+                    <a href="/404" class="dropdown-item">Mecze</a>
                 </div>
             </div>
             <a href="/contact" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Kontakt</a>

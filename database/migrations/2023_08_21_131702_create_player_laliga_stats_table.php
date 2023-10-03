@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('player_laliga_stats', function (Blueprint $table) {
             $table->id();
-            $table->foreign('player_id')->references('id')->on('players');
+            $table->foreignId('player_id')->constrained(
+                table: 'players', indexName: 'id'
+            )->onDelete('cascade');
             $table->integer('appearences_games')->nullable();
             $table->integer('lineups_games')->nullable();
             $table->string('minutes_games')->nullable();
@@ -57,6 +59,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+
         Schema::dropIfExists('player_laliga_stats');
     }
 };

@@ -1,7 +1,6 @@
 <?php
 
 
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/table', [App\Http\Controllers\League\tableController::class, 'index'])->name('table');
-Route::get('/players', [App\Http\Controllers\PlayersController::class, 'index'])->name('players');
+Route::get('/players', [\App\Http\Controllers\League\PlayersController::class, 'index'])->name('players');
 
 
 Auth::routes([
