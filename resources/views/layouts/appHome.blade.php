@@ -95,8 +95,7 @@
             <!-- User -->
             <div class="dropdown">
                 <a class="btn btn-sm-square nav-link d-sm-none" href="#" role="button" data-bs-toggle="dropdown">
-                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar }}" @endif  class="rounded-circle" height="44"
-                         alt="" loading="lazy" />
+                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44" alt="" loading="lazy" />
                 </a>
                 <a class="btn btn-sm-square nav-link d-none d-sm-flex ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown">
                     <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44"
