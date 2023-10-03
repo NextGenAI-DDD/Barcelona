@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class players extends Model
+class Player extends Model
 {
     use HasFactory;
 
@@ -17,19 +17,16 @@ class players extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
         'name',
         'age',
+        'number',
         'position',
-        'birth',
-        'place',
-        'country',
-        'nationality',
-        'height',
-        'weight',
-        'injured',
-        'photo',
+        'photo'
     ];
+
+    public function playerStats(){
+        return $this->hasOne('App\Models\PlayerBarcelonaStats');
+    }
 
     public static function resetPlayerTable()
     {

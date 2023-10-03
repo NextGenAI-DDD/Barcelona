@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\League;
+namespace App\Http\Controllers\LaLiga;
 
 use App\Http\Controllers\Controller;
-use App\Models\LeagueTableData;
+use App\Models\LaLigaTable;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Foundation\Application;
@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class tableController extends Controller
+class laLigaTableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class tableController extends Controller
      */
     public function index(): \Illuminate\Foundation\Application|View|Factory|Application
     {
-        $leagueTableData = LeagueTableData::orderBy('rank', 'asc')->get();
+        $leagueTableData = LaLigaTable::orderBy('rank', 'asc')->get();
 
         $lastApiRequestDate = Cache::get('last_api_request_date'); // Pobierz ostatnią datę z pamięci podręcznej
 
@@ -40,9 +40,9 @@ class tableController extends Controller
             $league = $data['response'][0]['league'];
             $standings = $league['standings'][0];
             // Zapisz pobrane dane do bazy danych
-            LeagueTableData::truncate();
+            LaLigaTable::truncate();
             foreach ($standings as $item){
-                LeagueTableData::create([
+                LaLigaTable::create([
                     'rank' => $item['rank'],
                     'logo' => $item['team']['logo'],
                     'team' => $item['team']['name'],

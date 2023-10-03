@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/table', [App\Http\Controllers\League\tableController::class, 'index'])->name('table');
-Route::get('/players', [\App\Http\Controllers\League\PlayersController::class, 'index'])->name('players');
+Route::get('/table', [\App\Http\Controllers\LaLiga\laLigaTableController::class, 'index'])->name('table');
+Route::get('/player', [\App\Http\Controllers\BarcelonaTeam\PlayerController::class, 'index'])->name('player');
 
 
 Auth::routes([

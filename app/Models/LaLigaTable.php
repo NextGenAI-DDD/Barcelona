@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LeagueTableData extends Model
+class LaLigaTable extends Model
 {
     use HasFactory;
 
@@ -15,17 +15,16 @@ class LeagueTableData extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
         'rank',
         'logo',
         'team',
-        'played',
+        'match_played',
         'win',
         'draw',
         'lose',
-        'goalsFor',
-        'goalsAgainst',
-        'goalsDiff',
+        'goals_for',
+        'goals_against',
+        'goals_diff',
         'points',
         'form',
     ];

@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('league_table_data', function (Blueprint $table) {
+        Schema::create('la_liga_table', function (Blueprint $table) {
             $table->id();
             $table->integer('rank')->unique();
             $table->string('logo');
             $table->string('team')->unique();
-            $table->integer('played')->nullable();
+            $table->integer('match_played')->nullable();
             $table->integer('win')->nullable();
             $table->integer('draw')->nullable();
             $table->integer('lose')->nullable();
-            $table->integer('goalsFor')->nullable();
-            $table->integer('goalsAgainst')->nullable();
-            $table->integer('goalsDiff')->nullable();
+            $table->integer('goals_for')->nullable();
+            $table->integer('goals_against')->nullable();
+            $table->integer('goals_diff')->nullable();
             $table->integer('points')->nullable();
             $table->string('form')->nullable();
             $table->timestamps();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('league_table_data');
+        Schema::dropIfExists('la_liga_table');
     }
 };

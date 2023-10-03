@@ -12,18 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('players', function (Blueprint $table) {
+        Schema::create('player', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->int('age');
+            $table->integer('age');
+            $table->integer('number')->nullable();
             $table->string('position');
-            $table->dateTime('birth')->nullable();
-            $table->string('place')->nullable();
-            $table->string('country')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('height')->nullable();
-            $table->string('weight')->nullable();
-            $table->boolean('injured');
             $table->string('photo');
             $table->timestamps();
         });
@@ -35,8 +29,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('player_laliga_stats');
-        Schema::dropIfExists('players');
+        Schema::dropIfExists('player_stats');
+        Schema::dropIfExists('player');
     }
 
 };

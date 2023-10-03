@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\League;
+namespace App\Http\Controllers\BarcelonaTeam;
 
 use App\Http\Controllers\Controller;
-use App\Models\playerLaligaStats;
-use App\Models\players;
+use App\Models\playerBarcelonaStats;
+use App\Models\player;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 
-class PlayersController extends Controller
+class PlayerController extends Controller
 {
 
     /**
@@ -22,8 +21,8 @@ class PlayersController extends Controller
      */
     public function index(): Renderable
     {
-        $players = players::get();
-        $playersStatic = playerLaligaStats::get();
+        $players = player::get();
+        $playersStatic = playerBarcelonaStats::get();
 
         $lastApiRequestDate = Cache::get('last_api_request_date');
         if (!$lastApiRequestDate || now()->diffInHours($lastApiRequestDate) >= 24) {
@@ -38,12 +37,12 @@ class PlayersController extends Controller
 
             $data = json_decode($response->getBody(), true);
             $jsonResponse = $data['response'];
-            playerLaligaStats::truncate();
-            players::resetPlayerTable();
+            playerBarcelonaStats::truncate();
+            player::resetPlayerTable();
 
               foreach ($jsonResponse as $player){
                 $statistics = $player['statistics'][0];
-                  $createdPlayer = players::create([
+                  $createdPlayer = player::create([
                     'name' => $player['player']['name'],
                     'age' => $player['player']['age'],
                     'position' => $player['statistics'][0]['games']['position'],
@@ -57,7 +56,7 @@ class PlayersController extends Controller
                     'photo' => $player['player']['photo'],
                 ]);
 
-                playerLaligaStats::create([
+                playerBarcelonaStats::create([
                     'player_id' => $createdPlayer->id,
                     'appearences_games' => $statistics['games']['appearences'],
                     'lineups_games' => $statistics['games']['lineups'],
@@ -103,6 +102,6 @@ class PlayersController extends Controller
 
             Cache::put('last_api_request_date', now(), 1440); // Zapisz datę ostatniego zapytania (24 godziny w minutach)
         }
-        return view('league.players', compact('players', 'playersStatic'));
+        return view('league.player', compact('players', 'playersStatic'));
     }
 }
