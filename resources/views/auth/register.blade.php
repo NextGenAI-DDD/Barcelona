@@ -16,7 +16,7 @@
                                         <h4 class="mt-1 mb-5 pb-1">Zostań naszym Cules</h4>
                                     </div>
 
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row mb-3">
@@ -96,6 +96,17 @@
                                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3">
+                                            <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Photo') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="avatar" type="file" class="form-control" name="avatar">
+
+                                            </div>
+                                        </div>
+
+
 
                                         <div class="row mb-0">
                                             <div class="col-md-6 offset-md-4">

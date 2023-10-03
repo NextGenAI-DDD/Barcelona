@@ -4,18 +4,22 @@ namespace App\Http\Controllers\League;
 
 use App\Http\Controllers\Controller;
 use App\Models\LeagueTableData;
-use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 
 class tableController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     * @throws GuzzleException
      */
-    public function index()
+    public function index(): \Illuminate\Foundation\Application|View|Factory|Application
     {
         $leagueTableData = LeagueTableData::orderBy('rank', 'asc')->get();
 
@@ -23,7 +27,7 @@ class tableController extends Controller
 
         // Sprawdź, czy minęło wystarczająco dużo czasu od ostatniego zapytania
         if (!$lastApiRequestDate || now()->diffInHours($lastApiRequestDate) >= 24) {
-            $client = new \GuzzleHttp\Client();
+            $client = new Client();
 
             $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/standings?season=2023&league=140', [
                 'headers' => [
