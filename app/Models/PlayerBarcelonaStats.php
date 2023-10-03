@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PlayerBarcelonaStats extends Model
 {
@@ -57,7 +58,8 @@ class PlayerBarcelonaStats extends Model
         'penalty_saved',
     ];
 
-    public function player(){
+    public function player(): BelongsTo
+    {
         return $this->belongsTo('App\Models\Player','player_id');
     }
 

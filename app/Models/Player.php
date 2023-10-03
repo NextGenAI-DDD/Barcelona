@@ -28,11 +28,4 @@ class Player extends Model
         return $this->hasOne('App\Models\PlayerBarcelonaStats');
     }
 
-    public static function resetPlayerTable()
-    {
-        Schema::disableForeignKeyConstraints();
-        DB::table('players')->truncate();
-        Schema::enableForeignKeyConstraints();
-    }
-
 }

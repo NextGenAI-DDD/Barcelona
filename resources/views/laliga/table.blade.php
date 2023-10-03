@@ -28,13 +28,13 @@
                 <tr class="mb-4" style="{{ $key <= 3 ? 'border-left: 2px solid #4285F4;' : '' }} @if($key == 4) border-left: 2px solid #FA7B17; @elseif($key == 5) border-left: 2px solid #34A853; @elseif($key > 16) border-left: 2px solid #EA4335; @endif">
                     <td>{{ $team->rank }}.</td>
                     <td><img src="{{ asset($team->logo) }}" style="height: 20px" alt="logo"> {{ $team->team }}</td>
-                    <td class="text-center">{{ $team->played }}</td>
+                    <td class="text-center">{{ $team->match_played }}</td>
                     <td class="text-center">{{ $team->win }}</td>
                     <td class="text-center">{{ $team->draw }}</td>
                     <td class="text-center">{{ $team->lose }}</td>
-                    <td class="text-center">{{ $team->goalsFor }}</td>
-                    <td class="text-center">{{ $team->goalsAgainst }}</td>
-                    <td class="text-center">{{ $team->goalsDiff }}</td>
+                    <td class="text-center">{{ $team->goals_for }}</td>
+                    <td class="text-center">{{ $team->goals_against }}</td>
+                    <td class="text-center">{{ $team->goals_diff }}</td>
                     <td class="text-center">{{ $team->points }}</td>
                     <td class="text-center">
                         <div class="d-flex">

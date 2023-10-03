@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('player_stats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('player_id')->constrained(
-                table: 'player', indexName: 'id'
-            )->onDelete('cascade');
+            $table->unsignedBigInteger('player_id');
+            $table->foreign('player_id')
+                ->references('id')
+                ->on('player')
+                ->onDelete('cascade');
             $table->dateTime('birth_date');
             $table->string('height');
             $table->string('weight');

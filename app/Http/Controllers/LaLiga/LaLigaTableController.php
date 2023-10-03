@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-class laLigaTableController extends Controller
+class LaLigaTableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,8 +37,11 @@ class laLigaTableController extends Controller
             ]);
 
             $data = json_decode($response->getBody(), true);
+
             $league = $data['response'][0]['league'];
+
             $standings = $league['standings'][0];
+
             // Zapisz pobrane dane do bazy danych
             LaLigaTable::truncate();
             foreach ($standings as $item){
@@ -46,13 +49,13 @@ class laLigaTableController extends Controller
                     'rank' => $item['rank'],
                     'logo' => $item['team']['logo'],
                     'team' => $item['team']['name'],
-                    'played' => $item['all']['played'],
+                    'match_played' => $item['all']['played'],
                     'win' => $item['all']['win'],
                     'draw' => $item['all']['draw'],
                     'lose' => $item['all']['lose'],
-                    'goalsFor' => $item['all']['goals']['for'],
-                    'goalsAgainst' => $item['all']['goals']['against'],
-                    'goalsDiff' => $item['goalsDiff'],
+                    'goals_for' => $item['all']['goals']['for'],
+                    'goals_against' => $item['all']['goals']['against'],
+                    'goals_diff' => $item['goalsDiff'],
                     'points' => $item['points'],
                     'form' => $item['form']
                 ]);
@@ -62,7 +65,7 @@ class laLigaTableController extends Controller
             Cache::put('last_api_request_date', now(), 1440); // Zapisz datę ostatniego zapytania (24 godziny w minutach)
         }
 
-        return view('league.table' ,compact('leagueTableData'));
+        return view('laliga.table' ,compact('leagueTableData'));
     }
 }
 

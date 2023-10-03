@@ -102,6 +102,6 @@ class PlayerController extends Controller
 
             Cache::put('last_api_request_date', now(), 1440); // Zapisz datę ostatniego zapytania (24 godziny w minutach)
         }
-        return view('league.player', compact('players', 'playersStatic'));
+        return view('laliga.player', compact('players', 'playersStatic'));
     }
 }
