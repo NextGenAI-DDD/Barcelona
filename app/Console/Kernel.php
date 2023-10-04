@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        //Add records to la-liga-table once a day
+//        $schedule->command('add-records-to-la-liga-table')->daily();
     }
 
     /**
