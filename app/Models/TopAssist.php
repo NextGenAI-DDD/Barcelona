@@ -9,6 +9,8 @@ class TopAssist extends Model
 {
     use HasFactory;
 
+    protected $table = 'top_assist';
+
     /**
      * The attributes that are mass assignable.
      *

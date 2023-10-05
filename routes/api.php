@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('laLigaTable',LaLigaTabelaController::class)->except([
     'create', 'show', 'edit'
 ]);
+
+Route::apiResource('top-assist',\App\Http\Controllers\Api\TopAssistController::class)->except([
+    'create', 'show', 'edit'
+]);

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('photo');
-            $table->integer('goals');
+            $table->integer('goals_assists');
             $table->integer('games_appearences');
             $table->integer('games_minutes');
             $table->string('games_position');
