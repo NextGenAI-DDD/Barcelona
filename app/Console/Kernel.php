@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\DB;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,8 +13,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        //Add records to la-liga-table once a day
-//        $schedule->command('add-records-to-la-liga-table')->daily();
+        $schedule->call(function () {
+            DB::table('la_liga_table')->delete();
+        })->dailyAt('4:00');
     }
 
     /**

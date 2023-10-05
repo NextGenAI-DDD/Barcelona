@@ -31,5 +31,4 @@ class LaLigaTable extends Model
         'form',
     ];
 
-
 }
