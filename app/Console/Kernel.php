@@ -14,8 +14,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
-            DB::table('la_liga_table')->delete();
-        })->dailyAt('4:00');
+            DB::table('la_liga_table')->truncate();
+        });
+
+       $schedule->command('add-records-to-la-liga-table');
+
     }
 
     /**
