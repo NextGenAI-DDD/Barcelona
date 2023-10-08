@@ -17,7 +17,7 @@ class TopAssistController extends Controller
     {
        $topAssist = TopAssist::all();
 
-       return TopAssistResource::collection($topAssist);
+        return response()->json(['message'=>'Team deleted']);
     }
 
     /**
