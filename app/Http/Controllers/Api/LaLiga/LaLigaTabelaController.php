@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\LaLiga;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LaLigaTabelaRequest;
 use App\Http\Resources\LaLigaTabelaResource;
 use App\Models\LaLigaTable;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
 
 class LaLigaTabelaController extends Controller
 {

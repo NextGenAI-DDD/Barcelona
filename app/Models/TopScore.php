@@ -9,6 +9,8 @@ class TopScore extends Model
 {
     use HasFactory;
 
+    protected $table = 'top_score';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,7 +20,7 @@ class TopScore extends Model
         'name',
         'photo',
         'goals',
-        'games_appearences',
+        'games_appearances',
         'games_minutes',
         'games_position'
     ];

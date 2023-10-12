@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\LaLiga;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TopAssistRequest;
 use App\Http\Resources\TopAssistResource;
 use App\Models\TopAssist;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class TopAssistController extends Controller
 {
@@ -17,7 +16,7 @@ class TopAssistController extends Controller
     {
        $topAssist = TopAssist::all();
 
-        return response()->json(['message'=>'Team deleted']);
+        return TopAssistResource::collection($topAssist);
     }
 
     /**

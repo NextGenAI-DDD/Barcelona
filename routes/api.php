@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\LaLigaTabelaController;
+use App\Http\Controllers\Api\LaLiga\LaLigaTabelaController;
+use App\Http\Controllers\Api\LaLiga\TopAssistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,6 @@ Route::apiResource('laLigaTable',LaLigaTabelaController::class)->except([
     'create', 'show', 'edit'
 ]);
 
-Route::apiResource('top-assist',\App\Http\Controllers\Api\TopAssistController::class)->except([
+Route::apiResource('top-assist',TopAssistController::class)->except([
     'create', 'show', 'edit'
 ]);

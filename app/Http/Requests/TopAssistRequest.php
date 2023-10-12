@@ -11,7 +11,7 @@ class TopAssistRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class TopAssistRequest extends FormRequest
             'name' => ['required'],
             'photo'  => ['required', 'string', 'max:80'],
             'goals'  => ['required', 'integer'],
-            'games_appearences'  => ['required', 'integer'],
+            'games_appearances'  => ['required', 'integer'],
             'games_minutes'  => ['required', 'integer'],
             'games_position'  => ['required', 'string', 'max:15'],
             'goals_assists'  => ['required', 'integer']

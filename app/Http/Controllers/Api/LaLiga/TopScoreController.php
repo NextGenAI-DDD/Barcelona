@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\LaLiga;
 
-use App\Models\PlayerBarcelonaStats;
 use App\Http\Controllers\Controller;
+use App\Models\TopScore;
 use Illuminate\Http\Request;
 
-class PlayerBarcelonaStatsController extends Controller
+class TopScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class PlayerBarcelonaStatsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PlayerBarcelonaStats $playerBarcelonaStats)
+    public function show(TopScore $topScore)
     {
         //
     }
@@ -43,7 +43,7 @@ class PlayerBarcelonaStatsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PlayerBarcelonaStats $playerBarcelonaStats)
+    public function edit(TopScore $topScore)
     {
         //
     }
@@ -51,7 +51,7 @@ class PlayerBarcelonaStatsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PlayerBarcelonaStats $playerBarcelonaStats)
+    public function update(Request $request, TopScore $topScore)
     {
         //
     }
@@ -59,7 +59,7 @@ class PlayerBarcelonaStatsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PlayerBarcelonaStats $playerBarcelonaStats)
+    public function destroy(TopScore $topScore)
     {
         //
     }

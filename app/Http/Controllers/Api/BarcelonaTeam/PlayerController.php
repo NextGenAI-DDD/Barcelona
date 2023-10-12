@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\BarcelonaTeam;
 
-use App\Models\TopScore;
 use App\Http\Controllers\Controller;
+use App\Models\Player;
 use Illuminate\Http\Request;
 
-class TopScoreController extends Controller
+class PlayerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class TopScoreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TopScore $topScore)
+    public function show(Player $player)
     {
         //
     }
@@ -43,7 +43,7 @@ class TopScoreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TopScore $topScore)
+    public function edit(Player $player)
     {
         //
     }
@@ -51,7 +51,7 @@ class TopScoreController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TopScore $topScore)
+    public function update(Request $request, Player $player)
     {
         //
     }
@@ -59,7 +59,7 @@ class TopScoreController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TopScore $topScore)
+    public function destroy(Player $player)
     {
         //
     }

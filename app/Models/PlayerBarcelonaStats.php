@@ -22,7 +22,7 @@ class PlayerBarcelonaStats extends Model
         'weight',
         'nationality',
         'injured',
-        'games_appearences',
+        'games_appearances',
         'games_lineups',
         'games_minutes',
         'games_rating',

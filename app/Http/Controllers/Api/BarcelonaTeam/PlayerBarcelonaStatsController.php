@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\BarcelonaTeam;
 
-use App\Models\Player;
 use App\Http\Controllers\Controller;
+use App\Models\PlayerBarcelonaStats;
 use Illuminate\Http\Request;
 
-class PlayerController extends Controller
+class PlayerBarcelonaStatsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Player $player)
+    public function show(PlayerBarcelonaStats $playerBarcelonaStats)
     {
         //
     }
@@ -43,7 +43,7 @@ class PlayerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Player $player)
+    public function edit(PlayerBarcelonaStats $playerBarcelonaStats)
     {
         //
     }
@@ -51,7 +51,7 @@ class PlayerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, PlayerBarcelonaStats $playerBarcelonaStats)
     {
         //
     }
@@ -59,7 +59,7 @@ class PlayerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Player $player)
+    public function destroy(PlayerBarcelonaStats $playerBarcelonaStats)
     {
         //
     }
