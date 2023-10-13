@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('weight');
             $table->string('nationality');
             $table->boolean('injured');
-            $table->integer('games_appearences')->nullable();
+            $table->integer('games_appearances')->nullable();
             $table->integer('games_lineups')->nullable();
             $table->integer('games_minutes')->nullable();
             $table->integer('games_rating')->nullable();

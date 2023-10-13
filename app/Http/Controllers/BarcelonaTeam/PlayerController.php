@@ -58,7 +58,7 @@ class PlayerController extends Controller
 
                 playerBarcelonaStats::create([
                     'player_id' => $createdPlayer->id,
-                    'appearences_games' => $statistics['games']['appearences'],
+                    'appearances_games' => $statistics['games']['appearances'],
                     'lineups_games' => $statistics['games']['lineups'],
                     'minutes_games' => $statistics['games']['minutes'],
                     'rating_games' => $statistics['games']['rating'],

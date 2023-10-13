@@ -2,21 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\TopAssist;
+use App\Models\TopScore;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TopAssist>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TopScore>
  */
-class TopAssistFactory extends Factory
+class TopScoreFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-
-    protected $model = TopAssist::class;
+    protected $model = TopScore::class;
     public function definition(): array
     {
         return [
@@ -25,7 +24,7 @@ class TopAssistFactory extends Factory
             'games_appearances' => fake()->randomNumber(2),
             'games_minutes' => fake()->randomNumber(3),
             'games_position' => fake()->word,
-            'goals_assists' => fake()->randomNumber(2),
+            'goals' => fake()->randomNumber(2),
         ];
     }
 }
