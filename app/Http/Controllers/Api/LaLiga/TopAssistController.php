@@ -24,9 +24,15 @@ class TopAssistController extends Controller
      */
     public function store(TopAssistRequest $request)
     {
-        $topAssist = TopAssist::create($request->validated());
+        $data = $request->validated();
+        $resources = [];
 
-        return new TopAssistResource($topAssist);
+        foreach ($data as $item) {
+            $topAssist = TopAssist::create($item);
+            $resources[] = new TopAssistResource($topAssist);
+        }
+
+        return TopAssistResource::collection($resources);
     }
 
     /**

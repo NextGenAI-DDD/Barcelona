@@ -2,10 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\LaLigaTable;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Log;
 
 class AddRecordsToLaLigaTable extends Command
@@ -70,7 +68,7 @@ class AddRecordsToLaLigaTable extends Command
 
             $jsonRequest = json_encode($requestData);
 
-            $apiResponse = $client->request('POST', 'http://localhost:8000/api/laLigaTable', [
+            $apiResponse = $client->request('POST', 'http://localhost/api/laLigaTable', [
                 'body' => $jsonRequest,
                 'headers' => [
                     'Content-Type' => 'application/json',

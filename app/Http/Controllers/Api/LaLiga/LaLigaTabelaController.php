@@ -24,12 +24,14 @@ class LaLigaTabelaController extends Controller
     public function store(LaLigaTabelaRequest $request)
     {
         $data = $request->validated();
+        $resources = [];
 
         foreach ($data as $item) {
-            LaLigaTable::create($item);
+            $team = LaLigaTable::create($item);
+            $resources[] = new LaLigaTabelaResource($team);
         }
 
-        return response()->json(['message' => 'Records Added.']);
+        return LaLigaTabelaResource::collection($resources);
     }
 
 

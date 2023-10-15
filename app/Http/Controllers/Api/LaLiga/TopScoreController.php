@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\LaLiga;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TopScoreRequest;
+use App\Http\Resources\TopScoreResource;
 use App\Models\TopScore;
 use Illuminate\Http\Request;
 
@@ -13,54 +15,25 @@ class TopScoreController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $topScore = TopScore::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return TopScoreResource::collection($topScore);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TopScoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        $resources = [];
+
+        foreach ($data as $item) {
+            $topScore = TopScore::create($item);
+            $resources[] = new TopScoreResource($topScore);
+        }
+
+        return TopScoreResource::collection($resources);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(TopScore $topScore)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TopScore $topScore)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, TopScore $topScore)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(TopScore $topScore)
-    {
-        //
-    }
 }

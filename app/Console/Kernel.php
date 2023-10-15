@@ -15,9 +15,13 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             DB::table('la_liga_table')->truncate();
+            DB::table('top_assist')->truncate();
+            DB::table('top_score')->truncate();
         });
 
        $schedule->command('add-records-to-la-liga-table');
+       $schedule->command('app:add-records-to-top-assist-table');
+       $schedule->command('app:add-records-to-top-score-table');
 
     }
 
