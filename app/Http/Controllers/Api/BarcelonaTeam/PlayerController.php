@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api\BarcelonaTeam;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PlayerRequest;
+use App\Http\Resources\PlayerResource;
 use App\Models\Player;
+use Faker\Provider\Company;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -13,54 +16,34 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $player = Player::with('playerStats')->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return PlayerResource::collection($player);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PlayerRequest $request)
     {
-        //
+        $playerData = $request->validated();
+
+        $resources = [];
+
+        foreach ($playerData as $item){
+            $player = Player::create($item);
+
+            // Add players stats if are in request
+            if ($request->has('playerStats')) {
+                $playerData = $request->input('playerStats');
+
+                $playerStats = $player->playersStats()->create($playerData);
+
+                $resources[] = new PlayerResource($player);
+            }
+        }
+
+        return PlayerResource::collection($resources);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Player $player)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Player $player)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Player $player)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Player $player)
-    {
-        //
-    }
 }

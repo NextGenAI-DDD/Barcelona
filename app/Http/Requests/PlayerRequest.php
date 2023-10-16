@@ -22,7 +22,11 @@ class PlayerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            '*.name' => ['required', 'string', 'max:255'],
+            '*.age' => ['required', 'integer', 'max:2'],
+            '*.number' => ['required', 'integer', 'nullable'],
+            '*.position' => ['required', 'string', 'max:20'],
+            '*.photo' => ['required', 'string', 'max:20']
         ];
     }
 }
