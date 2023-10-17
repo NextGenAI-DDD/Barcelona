@@ -11,6 +11,8 @@ class Player extends Model
 {
     use HasFactory;
 
+    protected $table = 'player';
+
     /**
      * The attributes that are mass assignable.
      *

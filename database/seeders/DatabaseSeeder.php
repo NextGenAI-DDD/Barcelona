@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\LaLigaTable;
+use App\Models\Player;
+use App\Models\PlayerBarcelonaStats;
 use App\Models\TopAssist;
 use App\Models\TopScore;
 use App\Models\User;
@@ -20,5 +22,7 @@ class DatabaseSeeder extends Seeder
          TopAssist::factory(10)->create();
          LaLigaTable::factory(10)->create();
          TopScore::factory(10)->create();
+         Player::factory(10)->create();
+         PlayerBarcelonaStats::factory(10)->create();
     }
 }

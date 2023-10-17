@@ -10,6 +10,8 @@ class PlayerBarcelonaStats extends Model
 {
     use HasFactory;
 
+    protected $table = 'player_stats';
+
     /**
      * The attributes that are mass assignable.
      *
