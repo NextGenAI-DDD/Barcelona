@@ -45,7 +45,13 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
             $requestData = [];
 
             // Foreach for send data to table top_assist
-            foreach ($players as $player){
+            $loopCounter = 0;
+            foreach ($players as $player) {
+                $playerStats = [];
+                if ($loopCounter >= 2) {
+                    break; // Exit the loop after two iterations
+                }
+                $loopCounter++;
                 // Api for get player stats
                 $responseStats = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/players?id='.$player['id'].'&season=2023', [
                     'headers' => [
@@ -120,6 +126,8 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
 
             }
             $jsonRequest = json_encode($requestData);
+
+            dd($jsonRequest);
 
             $apiResponse = $client->request('POST', 'http://localhost/api/player', [
                 'body' => $jsonRequest,
