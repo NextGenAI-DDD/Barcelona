@@ -17,11 +17,14 @@ class Kernel extends ConsoleKernel
             DB::table('la_liga_table')->truncate();
             DB::table('top_assist')->truncate();
             DB::table('top_score')->truncate();
+            DB::table('player_stats')->delete();
+            DB::table('player')->delete();
         });
 
        $schedule->command('add-records-to-la-liga-table');
        $schedule->command('app:add-records-to-top-assist-table');
        $schedule->command('app:add-records-to-top-score-table');
+       $schedule->command('app:add-records-to-player-table');
 
     }
 

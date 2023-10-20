@@ -28,15 +28,15 @@ class PlayerController extends Controller
     {
         $playerData = $request->validated();
 
-        foreach ($playerData as $item) {
-            $player = Player::create($item);
+
+            $player = Player::create($playerData);
 
             // Dodaj pracowników do firmy, jeśli są przesłani w żądaniu
             if ($request->has('playerStats')) {
                 $playerStatsData = $request->input('playerStats');
                 $stats = $player->playerStats()->create($playerStatsData);
             }
-        }
+
 
         return response()->json("Company Added");
 

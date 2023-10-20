@@ -45,13 +45,10 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
             $requestData = [];
 
             // Foreach for send data to table top_assist
-            $loopCounter = 0;
+
             foreach ($players as $player) {
                 $playerStats = [];
-                if ($loopCounter >= 2) {
-                    break; // Exit the loop after two iterations
-                }
-                $loopCounter++;
+
                 // Api for get player stats
                 $responseStats = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/players?id='.$player['id'].'&season=2023', [
                     'headers' => [
@@ -70,7 +67,7 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 $statsStatistics = $stats['statistics'][0];
 
                 // Added player stats
-                $playerStats[] = [
+                $playerStats = [
                     'birth_date' => $statsPlayer['birth']['date'],
                     'height' => $statsPlayer['height'],
                     'weight' => $statsPlayer['weight'],
@@ -113,7 +110,7 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 ];
 
                 // Added player with stats
-                $requestData[] = [
+                $requestData = [
                     'name' => $player['name'],
                     'age' => $player['age'],
                     'number' => $player['number'],
@@ -122,17 +119,19 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                     'playerStats' => $playerStats
                 ];
 
+                $jsonRequest = json_encode($requestData);
 
+                $apiResponse = $client->request('POST', 'http://localhost/api/player', [
+                    'body' => $jsonRequest,
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                    ],
+                ]);
 
+                //sleep foreach beacuse to many request on 1 minute
+                sleep(10);
             }
-            $jsonRequest = json_encode($requestData);
 
-            $apiResponse = $client->request('POST', 'http://localhost/api/player', [
-                'body' => $jsonRequest,
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
-            ]);
 
             $apiResponseData = $apiResponse->getBody();
 
