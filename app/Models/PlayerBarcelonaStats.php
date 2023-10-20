@@ -62,7 +62,7 @@ class PlayerBarcelonaStats extends Model
 
     public function player(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Player','player_id');
+        return $this->belongsTo(Player::class,'player_id');
     }
 
 }

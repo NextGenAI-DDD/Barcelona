@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -26,8 +27,9 @@ class Player extends Model
         'photo'
     ];
 
-    public function playerStats(){
-        return $this->hasOne('App\Models\PlayerBarcelonaStats');
+    public function playerStats(): HasOne
+    {
+        return $this->hasOne(PlayerBarcelonaStats::class, 'player_id');
     }
 
 }

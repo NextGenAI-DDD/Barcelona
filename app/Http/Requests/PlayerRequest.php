@@ -23,10 +23,10 @@ class PlayerRequest extends FormRequest
     {
         return [
             '*.name' => ['required', 'string', 'max:255'],
-            '*.age' => ['required', 'integer', 'max:2'],
-            '*.number' => ['required', 'integer', 'nullable'],
+            '*.age' => ['required', 'integer'],
+            '*.number' => ['integer', 'nullable'],
             '*.position' => ['required', 'string', 'max:20'],
-            '*.photo' => ['required', 'string', 'max:20']
+            '*.photo' => ['required', 'string'],
         ];
     }
 }

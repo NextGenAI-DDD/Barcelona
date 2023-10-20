@@ -127,8 +127,6 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
             }
             $jsonRequest = json_encode($requestData);
 
-            dd($jsonRequest);
-
             $apiResponse = $client->request('POST', 'http://localhost/api/player', [
                 'body' => $jsonRequest,
                 'headers' => [
