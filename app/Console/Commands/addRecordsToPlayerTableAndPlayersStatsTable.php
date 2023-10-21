@@ -60,54 +60,56 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 // GET data from API response
                 $dataStats = json_decode($responseStats->getBody(), true);
 
-                $stats = $dataStats['response'][0];
+                if($dataStats != null){
+                    $stats = $dataStats['response'][0];
 
-                $statsPlayer = $stats['player'];
+                    $statsPlayer = $stats['player'];
 
-                $statsStatistics = $stats['statistics'][0];
+                    $statsStatistics = $stats['statistics'][0];
 
-                // Added player stats
-                $playerStats = [
-                    'birth_date' => $statsPlayer['birth']['date'],
-                    'height' => $statsPlayer['height'],
-                    'weight' => $statsPlayer['weight'],
-                    'nationality' => $statsPlayer['nationality'],
-                    'injured' => $statsPlayer['injured'],
-                    'games_appearances' => $statsStatistics['games']['appearences'],
-                    'games_lineups' => $statsStatistics['games']['lineups'],
-                    'games_minutes' => $statsStatistics['games']['minutes'],
-                    'games_rating' => $statsStatistics['games']['rating'],
-                    'substitutes_in' => $statsStatistics['substitutes']['in'],
-                    'substitutes_out' => $statsStatistics['substitutes']['out'],
-                    'substitutes_bench' => $statsStatistics['substitutes']['bench'],
-                    'shots_total' => $statsStatistics['shots']['total'],
-                    'shots_on' => $statsStatistics['shots']['on'],
-                    'goals_total' => $statsStatistics['goals']['total'],
-                    'goals_conceded' => $statsStatistics['goals']['conceded'],
-                    'goals_assists' => $statsStatistics['goals']['assists'],
-                    'goals_saves' => $statsStatistics['goals']['saves'],
-                    'passes_total' => $statsStatistics['passes']['total'],
-                    'passes_key' => $statsStatistics['passes']['key'],
-                    'passes_accuracy' => $statsStatistics['passes']['accuracy'],
-                    'tackles_total' => $statsStatistics['tackles']['total'],
-                    'tackles_blocks' => $statsStatistics['tackles']['blocks'],
-                    'tackles_interceptions' => $statsStatistics['tackles']['interceptions'],
-                    'duels_total' => $statsStatistics['duels']['total'],
-                    'duels_won' => $statsStatistics['duels']['won'],
-                    'dribbles_attempts' => $statsStatistics['dribbles']['attempts'],
-                    'dribbles_success' => $statsStatistics['dribbles']['success'],
-                    'dribbles_past' => $statsStatistics['dribbles']['past'],
-                    'fouls_drawn' => $statsStatistics['fouls']['drawn'],
-                    'fouls_committed' => $statsStatistics['fouls']['committed'],
-                    'cards_yellow' => $statsStatistics['cards']['yellow'],
-                    'cards_yellowred' => $statsStatistics['cards']['yellowred'],
-                    'cards_red' => $statsStatistics['cards']['red'],
-                    'penalty_won' => $statsStatistics['penalty']['won'],
-                    'penalty_committed' => $statsStatistics['penalty']['commited'],
-                    'penalty_scored' => $statsStatistics['penalty']['scored'],
-                    'penalty_missed' => $statsStatistics['penalty']['missed'],
-                    'penalty_saved' => $statsStatistics['penalty']['saved'],
-                ];
+                    // Added player stats
+                    $playerStats = [
+                        'birth_date' => $statsPlayer['birth']['date'],
+                        'height' => $statsPlayer['height'],
+                        'weight' => $statsPlayer['weight'],
+                        'nationality' => $statsPlayer['nationality'],
+                        'injured' => $statsPlayer['injured'],
+                        'games_appearances' => $statsStatistics['games']['appearences'],
+                        'games_lineups' => $statsStatistics['games']['lineups'],
+                        'games_minutes' => $statsStatistics['games']['minutes'],
+                        'games_rating' => $statsStatistics['games']['rating'],
+                        'substitutes_in' => $statsStatistics['substitutes']['in'],
+                        'substitutes_out' => $statsStatistics['substitutes']['out'],
+                        'substitutes_bench' => $statsStatistics['substitutes']['bench'],
+                        'shots_total' => $statsStatistics['shots']['total'],
+                        'shots_on' => $statsStatistics['shots']['on'],
+                        'goals_total' => $statsStatistics['goals']['total'],
+                        'goals_conceded' => $statsStatistics['goals']['conceded'],
+                        'goals_assists' => $statsStatistics['goals']['assists'],
+                        'goals_saves' => $statsStatistics['goals']['saves'],
+                        'passes_total' => $statsStatistics['passes']['total'],
+                        'passes_key' => $statsStatistics['passes']['key'],
+                        'passes_accuracy' => $statsStatistics['passes']['accuracy'],
+                        'tackles_total' => $statsStatistics['tackles']['total'],
+                        'tackles_blocks' => $statsStatistics['tackles']['blocks'],
+                        'tackles_interceptions' => $statsStatistics['tackles']['interceptions'],
+                        'duels_total' => $statsStatistics['duels']['total'],
+                        'duels_won' => $statsStatistics['duels']['won'],
+                        'dribbles_attempts' => $statsStatistics['dribbles']['attempts'],
+                        'dribbles_success' => $statsStatistics['dribbles']['success'],
+                        'dribbles_past' => $statsStatistics['dribbles']['past'],
+                        'fouls_drawn' => $statsStatistics['fouls']['drawn'],
+                        'fouls_committed' => $statsStatistics['fouls']['committed'],
+                        'cards_yellow' => $statsStatistics['cards']['yellow'],
+                        'cards_yellowred' => $statsStatistics['cards']['yellowred'],
+                        'cards_red' => $statsStatistics['cards']['red'],
+                        'penalty_won' => $statsStatistics['penalty']['won'],
+                        'penalty_committed' => $statsStatistics['penalty']['commited'],
+                        'penalty_scored' => $statsStatistics['penalty']['scored'],
+                        'penalty_missed' => $statsStatistics['penalty']['missed'],
+                        'penalty_saved' => $statsStatistics['penalty']['saved'],
+                    ];
+                }
 
                 // Added player with stats
                 $requestData = [
@@ -116,8 +118,11 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                     'number' => $player['number'],
                     'position' => $player['position'],
                     'photo' => $player['photo'],
-                    'playerStats' => $playerStats
                 ];
+
+                if ($playerStats !== null) {
+                    $requestData['playerStats'] = $playerStats;
+                }
 
                 $jsonRequest = json_encode($requestData);
 
@@ -129,7 +134,7 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 ]);
 
                 //sleep foreach beacuse to many request on 1 minute
-                sleep(10);
+                sleep(1);
             }
 
 

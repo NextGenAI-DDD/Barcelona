@@ -14,11 +14,15 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
+
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
             DB::table('la_liga_table')->truncate();
             DB::table('top_assist')->truncate();
             DB::table('top_score')->truncate();
-            DB::table('player_stats')->delete();
-            DB::table('player')->delete();
+            DB::table('player_stats')->truncate();
+            DB::table('player')->truncate();
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         });
 
        $schedule->command('add-records-to-la-liga-table');
