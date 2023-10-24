@@ -26,19 +26,25 @@ class PlayerController extends Controller
      */
     public function store(PlayerRequest $request)
     {
-        $playerData = $request->validated();
+        $playersData = $request->validated();
 
+        // Sprawdź, czy dane zawierają listę piłkarzy
+        if ($request->has('players')) {
+            $players = $request->input('players');
 
-            $player = Player::create($playerData);
+            // Iteruj przez listę piłkarzy i zapisz każdego z nich
+            foreach ($players as $playerData) {
+                $player = Player::create($playerData);
 
-            // Dodaj pracowników do firmy, jeśli są przesłani w żądaniu
-            if ($request->has('playerStats')) {
-                $playerStatsData = $request->input('playerStats');
-                $stats = $player->playerStats()->create($playerStatsData);
+                // Sprawdź, czy statystyki piłkarza są dostępne
+                if (isset($playerData['playerStats'])) {
+                    $playerStatsData = $playerData['playerStats'];
+                    $stats = $player->playerStats()->create($playerStatsData);
+                }
             }
+        }
 
-
-        return response()->json("Company Added");
+        return response()->json("Players Added");
 
     }
 }

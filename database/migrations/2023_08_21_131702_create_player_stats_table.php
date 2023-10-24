@@ -18,11 +18,11 @@ return new class extends Migration
                 ->references('id')
                 ->on('player')
                 ->onDelete('cascade');
-            $table->dateTime('birth_date');
-            $table->string('height');
-            $table->string('weight');
-            $table->string('nationality');
-            $table->boolean('injured');
+            $table->dateTime('birth_date')->nullable();
+            $table->string('height')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('nationality')->nullable();
+            $table->boolean('injured')->nullable();
             $table->integer('games_appearances')->nullable();
             $table->integer('games_lineups')->nullable();
             $table->integer('games_minutes')->nullable();

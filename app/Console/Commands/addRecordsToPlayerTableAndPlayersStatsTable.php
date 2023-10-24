@@ -42,10 +42,9 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
 
             $players = $data['response'][0]['players'];
 
-            $requestData = [];
+            $playersData = [];
 
             // Foreach for send data to table top_assist
-
             foreach ($players as $player) {
                 $playerStats = [];
 
@@ -112,31 +111,31 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 }
 
                 // Added player with stats
-                $requestData = [
+                $playersData[] = [
                     'name' => $player['name'],
                     'age' => $player['age'],
                     'number' => $player['number'],
                     'position' => $player['position'],
                     'photo' => $player['photo'],
+                    'playerStats' => $playerStats
                 ];
 
-                if ($playerStats !== null) {
-                    $requestData['playerStats'] = $playerStats;
-                }
-
-                $jsonRequest = json_encode($requestData);
-
-                $apiResponse = $client->request('POST', 'http://localhost/api/player', [
-                    'body' => $jsonRequest,
-                    'headers' => [
-                        'Content-Type' => 'application/json',
-                    ],
-                ]);
-
-                //sleep foreach beacuse to many request on 1 minute
-                sleep(1);
+                //sleep foreach beacuse to many request on 5 seconds
+                sleep(5);
             }
 
+            $requestData = [
+                'players' => $playersData,
+            ];
+
+            $jsonRequest = json_encode($requestData);
+
+            $apiResponse = $client->request('POST', 'http://localhost/api/player', [
+                'body' => $jsonRequest,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                ],
+            ]);
 
             $apiResponseData = $apiResponse->getBody();
 
