@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\Unit\TopScoreApiTest;
+namespace Tests\Feature\TopScoreApiTest;
 
 use App\Models\TopScore;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -12,7 +12,7 @@ class TopScoreShowTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic unit test example.
+     * Test for TopScoreShow Api
      */
     public function testShowTopScoreApi()
     {

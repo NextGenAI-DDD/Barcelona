@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\Unit\TopAssistApiTest;
+namespace Tests\Feature\TopAssistApiTest;
 
 use App\Models\TopAssist;
 use Illuminate\Foundation\Testing\RefreshDatabase;

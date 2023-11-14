@@ -121,7 +121,8 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 ];
 
                 //sleep foreach beacuse to many request on 5 seconds
-                sleep(5);
+                sleep(2);
+
             }
 
             $requestData = [

@@ -34,24 +34,4 @@ class LaLigaTabelaController extends Controller
         return LaLigaTabelaResource::collection($resources);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(LaLigaTabelaRequest $request, LaLigaTable $laLigaTable)
-    {
-        $laLigaTable->update($request->required());
-
-        return new LaLigaTabelaResource($laLigaTable);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(LaLigaTable $laLigaTable)
-    {
-        $laLigaTable->delete();
-
-        return response()->json(['message'=>'Team deleted']);
-    }
 }

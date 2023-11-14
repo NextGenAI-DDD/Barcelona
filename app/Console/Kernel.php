@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         });
 
-       $schedule->command('add-records-to-la-liga-table');
+       $schedule->command('app:add-records-to-la-liga-table');
        $schedule->command('app:add-records-to-top-assist-table');
        $schedule->command('app:add-records-to-top-score-table');
        $schedule->command('app:add-records-to-player-table');

@@ -35,23 +35,4 @@ class TopAssistController extends Controller
         return TopAssistResource::collection($resources);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(TopAssistRequest $request, TopAssist $topAssist)
-    {
-        $topAssist->update($request->validated());
-
-        return new TopAssistResource($topAssist);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(TopAssist $topAssist)
-    {
-        $topAssist->delete();
-
-        return response()->json(['message'=>'Team deleted']);
-    }
 }

@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
-class AddRecordsToLaLigaTable extends Command
+class addRecordsToLaLigaTable extends Command
 {
 
     /**
@@ -14,7 +14,7 @@ class AddRecordsToLaLigaTable extends Command
      *
      * @var string
      */
-    protected $signature = 'add-records-to-la-liga-table';
+    protected $signature = 'app:add-records-to-la-liga-table';
 
     /**
      * The console command description.

@@ -1,13 +1,11 @@
 <?php
 
-namespace Tests\Unit\Player;
+namespace Tests\Feature\Player;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use App\Models\Player;
 use App\Models\PlayerBarcelonaStats;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class PlayerApiTest extends TestCase
 {
