@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\LaLiga;
 
 use App\Http\Controllers\Controller;
-use App\Models\TopAssist;
 use App\Models\TopScore;
-use Illuminate\Http\Request;
+
 
 class TopScoreController extends Controller
 {
