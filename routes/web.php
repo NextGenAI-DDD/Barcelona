@@ -1,6 +1,10 @@
 <?php
 
 
+use App\Http\Controllers\BarcelonaTeam\PlayerController;
+use App\Http\Controllers\LaLiga\LaLigaTableController;
+use App\Http\Controllers\LaLiga\TopAssistController;
+use App\Http\Controllers\LaLiga\TopScoreController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +23,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/table', [\App\Http\Controllers\LaLiga\laLigaTableController::class, 'index'])->name('table');
-Route::get('/player', [\App\Http\Controllers\BarcelonaTeam\PlayerController::class, 'index'])->name('player');
+// la liga routes
+Route::group(['prefix' => 'laLiga'], function () {
+    Route::get('/table', [laLigaTableController::class, 'index'])->name('laLiga.table');
+    Route::get('/topAssistants', [TopAssistController::class, 'index'])->name('laLiga.topAssistants');
+    Route::get('/topScores', [TopScoreController::class, 'index'])->name('laLiga.topScores');
+});
+
+
+Route::get('/player', [PlayerController::class, 'index'])->name('player');
 
 
 Auth::routes([
