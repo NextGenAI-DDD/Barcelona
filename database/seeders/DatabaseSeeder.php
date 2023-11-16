@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Game;
 use App\Models\LaLigaTable;
 use App\Models\Player;
 use App\Models\PlayerBarcelonaStats;
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
          TopScore::factory(10)->create();
          Player::factory(10)->create();
          PlayerBarcelonaStats::factory(10)->create();
+         Game::factory(10)->create();
     }
 }
