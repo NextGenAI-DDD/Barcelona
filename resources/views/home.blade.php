@@ -15,7 +15,7 @@
                                     <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Lionel Andrés Messi Cuccittini</h1>
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
-                                    <img class="img-fluid" src="{{ asset('storage/img/messitlo.jpg') }}" alt="">
+                                    <img class="img-fluid" src="{{ asset('storage/img/messiTlo.jpg') }}" alt="">
                                 </div>
                             </div>
                         </div>

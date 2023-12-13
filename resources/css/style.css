@@ -118,7 +118,7 @@
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #FFFFFF;
+    color: #ebe424;
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
@@ -227,7 +227,7 @@
 
 /*** Facts ***/
 .fact {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messitlo.jpg);
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messiTlo.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -251,7 +251,7 @@
 
 /*** Booking ***/
 .booking {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messitlo.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messiTlo.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -351,7 +351,7 @@ div.container-fluid.scroll-aktywny {
 }
 
 .footer {
-    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../storage/app/public/img/messitlo.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../storage/app/public/img/messiTlo.jpg) center center no-repeat;
     background-size: cover;
 }
 
