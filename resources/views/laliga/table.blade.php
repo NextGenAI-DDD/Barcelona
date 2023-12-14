@@ -7,7 +7,7 @@
             <h1 class="d-flex align-items-center ms-3 justify-content-center m-0 fw-bold text-white" >{{ __("La Liga Table") }}</h1>
         </div>
 
-        <table class="table">
+        <table class="table w-100">
             <thead>
             <tr>
                 <th>{{ __('Rank') }}</th>
@@ -38,7 +38,7 @@
                     <td class="text-center">{{ $team->points }}</td>
                     <td class="text-center">
                         <div class="d-flex">
-                            @foreach(str_split(substr($team->form, -5)) as $character)
+                            @foreach(str_split(substr($team->form, -3)) as $character)
                                 @if($character === 'W')
                                         <div class="bg-success bg-gradient text-white ms-1 shadow" style="width: 25px">
                                             <span class="fw-bold">{{ $character }}</span>

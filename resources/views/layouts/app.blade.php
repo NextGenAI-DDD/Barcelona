@@ -98,15 +98,15 @@
             <a href="#" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">{{ __('About') }}</a>
             <a href="/players" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">{{ __('Players') }}</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('404') ? 'active' : '' }}" data-bs-toggle="dropdown">{{ __('League') }}</a>
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('laLiga*') ? 'active' : '' }}" data-bs-toggle="dropdown">{{ __('League') }}</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="{{ route('laLiga.table') }}" class="dropdown-item">{{ __('La Liga Table') }}</a>
-                    <a href="/404" class="dropdown-item">{{ __('Games') }}</a>
+{{--                    <a href="{{ route('laLiga.games') }}" class="dropdown-item">{{ __('Games') }}</a>--}}
                     <a href="{{ route('laLiga.topScores') }}" class="dropdown-item">{{ __('Top Scores') }}</a>
                     <a href="{{ route('laLiga.topAssistants') }}" class="dropdown-item">{{ __('Top Assistants') }}</a>
                 </div>
             </div>
-            <a href="/contact" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">{{ __('Contact Information') }}</a>
+            <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">{{ __('Contact Information') }}</a>
             <a href="#" class="nav-link dropdown-toggle d-md-none d-sm-block" data-bs-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
             <div class="dropdown-menu fade-up m-0">
                 <a href="{{ route('login') }}" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i>{{ __("Log in")  }}</a>
