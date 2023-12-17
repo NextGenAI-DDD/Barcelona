@@ -8,29 +8,50 @@
                     <img src="{{ asset('storage/img/mail.png') }}" alt="IMG">
                 </div>
                 <form class="contact100-form validate-form" action="">
+                    @csrf
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="name" placeholder="{{ __('Name') }}">
+                        <input class="input100 @error('email') is-invalid @enderror" type="text" name="name" placeholder="{{ __('Name') }}">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
                     </div>
-                    <div class="wrap-input100" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="{{ __('Email') }}">
+                    <div class="wrap-input100">
+                        <input class="input100 @error('email') is-invalid @enderror" type="text" name="email" placeholder="{{ __('Email') }}" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
                     </div>
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="email" placeholder="{{ __('Subject') }}">
+                        <input class="input100 @error('subject') is-invalid @enderror" type="text" name="subject" placeholder="{{ __('Subject') }}" required>
+                        @error('subject')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa-solid fa-heading"></i>
                         </span>
                     </div>
                     <div class="wrap-input100">
-                        <textarea class="input100" name="message" placeholder="{{ __('Message') }}"></textarea>
+                        <textarea class="input100 @error('message') is-invalid @enderror" name="message" placeholder="{{ __('Message') }}" required></textarea>
+                        @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <span class="focus-input100"></span>
                     </div>
                     <div class="container-contact100-form-btn">
