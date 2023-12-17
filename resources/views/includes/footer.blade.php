@@ -10,16 +10,16 @@
                 <div class="col-lg-4">
                     <h4 class="text-light mb-4">Linki do innych społeczności powiązanych z Barceloną</h4>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://twitter.com/FCBarcelona"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/fcbarcelona/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@FCBarcelona"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/adrian-kemski-7840b1251/"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <h4 class="text-light mb-4">Regulamin Grupy</h4>
-                    <a class="btn btn-link" href="">Regulamin</a>
-                </div>
+{{--                <div class="col-lg-4">--}}
+{{--                    <h4 class="text-light mb-4">Regulamin Grupy</h4>--}}
+{{--                    <a class="btn btn-link" href="">Regulamin</a>--}}
+{{--                </div>--}}
             </div>
         </div>
         <div class="container">

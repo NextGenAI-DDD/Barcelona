@@ -11,7 +11,7 @@ class GamesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,24 +22,23 @@ class GamesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            '*.referee' => ['required', 'string', 'nullable', 'max:80'],
-            '*.stadium'  => ['required', 'string', 'max:80'],
-            '*.city'  => ['required', 'string', 'max:80'],
-            '*.date'  => ['required', 'dateTime'],
-            '*.home_team_name'  => ['required', 'string', 'max:80'],
-            '*.home_team_logo'  => ['required', 'string', 'max:80'],
-            '*.home_team_winner'  => ['required', 'boolean'],
-            '*.away_team_name'  => ['required', 'string', 'max:80'],
-            '*.away_team_logo'  => ['required', 'string', 'max:80'],
-            '*.away_team_winner'  => ['required', 'boolean'],
-            '*.league_name'  => ['required', 'string', 'max:80'],
-            '*.league_logo'  => ['required', 'string', 'max:80'],
-            '*.league_round'  => ['required', 'string', 'max:80'],
-            '*.goals_home'  => ['required', 'integer', 'nullable'],
-            '*.goals_away'  => ['required', 'integer', 'nullable'],
-            '*.home_penalty'  => ['required', 'integer', 'nullable'],
-            '*.away_penalty'  => ['required', 'integer', 'nullable'],
-
+            '*.referee' => ['nullable', 'string', 'max:255'],
+            '*.stadium'  => ['nullable', 'string', 'max:255'],
+            '*.city'  => ['nullable', 'string', 'max:255'],
+            '*.date'  => ['nullable'],
+            '*.home_team_name'  => ['nullable', 'string', 'max:255'],
+            '*.home_team_logo'  => ['nullable', 'string', 'max:255'],
+            '*.home_team_winner'  => ['nullable', 'boolean'],
+            '*.away_team_name'  => ['nullable', 'string', 'max:255'],
+            '*.away_team_logo'  => ['nullable', 'string', 'max:255'],
+            '*.away_team_winner'  => ['nullable', 'boolean'],
+            '*.league_name'  => ['nullable', 'string', 'max:255'],
+            '*.league_logo'  => ['nullable', 'string', 'max:255'],
+            '*.league_round'  => ['nullable', 'string', 'max:255'],
+            '*.goals_home'  => ['nullable', 'integer'],
+            '*.goals_away'  => ['nullable', 'integer'],
+            '*.home_penalty'  => ['nullable', 'integer'],
+            '*.away_penalty'  => ['nullable', 'integer'],
         ];
     }
 }

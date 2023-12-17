@@ -7,7 +7,7 @@
                 <div class="contact100-pic js-tilt" data-tilt>
                     <img src="{{ asset('storage/img/mail.png') }}" alt="IMG">
                 </div>
-                <form class="contact100-form validate-form">
+                <form class="contact100-form validate-form" action="">
                     <div class="wrap-input100">
                         <input class="input100" type="text" name="name" placeholder="{{ __('Name') }}">
                         <span class="focus-input100"></span>
@@ -23,7 +23,7 @@
                         </span>
                     </div>
                     <div class="wrap-input100">
-                        <input class="input100" type="text" name="email" placeholder="{{ __('Title') }}">
+                        <input class="input100" type="text" name="email" placeholder="{{ __('Subject') }}">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa-solid fa-heading"></i>

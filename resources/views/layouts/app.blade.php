@@ -47,38 +47,38 @@
                 <ul class="navbar-nav">
 
                 </ul>
-                <div class="dropdown">
-                    <a class="btn btn-sm-square bg-white text-primary me-1 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                    <ul class="dropdown-menu fade-up m-0">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item hover">
+{{--                <div class="dropdown">--}}
+{{--                    <a class="btn btn-sm-square bg-white text-primary me-1 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">--}}
+{{--                        <i class="fa-solid fa-user"></i>--}}
+{{--                    </a>--}}
+{{--                    <ul class="dropdown-menu fade-up m-0">--}}
+{{--                        <!-- Authentication Links -->--}}
+{{--                        @guest--}}
+{{--                            @if (Route::has('login'))--}}
+{{--                                <li class="nav-item hover">--}}
 
-                                    <a class="nav-link text-align-center m-1" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>
-                                </li>
-                            @endif
+{{--                                    <a class="nav-link text-align-center m-1" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link m-1" href="{{ route('register') }}"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                    <a class="nav-link m-auto ms-2" href="{{ route('home') }}">
-                                        <i class="fa-solid fa-home"></i> {{ __('homePage') }}
-                                    </a>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+{{--                            @if (Route::has('register'))--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link m-1" href="{{ route('register') }}"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
+{{--                        @else--}}
+{{--                            <li class="nav-item dropdown">--}}
+{{--                                    <a class="nav-link m-auto ms-2" href="{{ route('home') }}">--}}
+{{--                                        <i class="fa-solid fa-home"></i> {{ __('homePage') }}--}}
+{{--                                    </a>--}}
+{{--                            </li>--}}
+{{--                        @endguest--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/fcbarcelona/?locale2=pl_PL&paipv=0&eav=Afb2n5L1Tx-Mt3jgHGiTtzg09mMnoV8wj5UVSwcpIQZsAUtkFcYDSZy7hChMuobcaro&_rdr"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://twitter.com/FCBarcelona"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/in/adrian-kemski-7840b1251/"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/fcbarcelona/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -95,23 +95,22 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">{{ __('Main Page') }}</a>
-            <a href="#" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">{{ __('About') }}</a>
             <a href="/players" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">{{ __('Players') }}</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('laLiga*') ? 'active' : '' }}" data-bs-toggle="dropdown">{{ __('League') }}</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="{{ route('laLiga.table') }}" class="dropdown-item">{{ __('La Liga Table') }}</a>
-{{--                    <a href="{{ route('laLiga.games') }}" class="dropdown-item">{{ __('Games') }}</a>--}}
+                    <a href="{{ route('laLiga.games') }}" class="dropdown-item">{{ __('Games') }}</a>
                     <a href="{{ route('laLiga.topScores') }}" class="dropdown-item">{{ __('Top Scores') }}</a>
                     <a href="{{ route('laLiga.topAssistants') }}" class="dropdown-item">{{ __('Top Assistants') }}</a>
                 </div>
             </div>
             <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">{{ __('Contact Information') }}</a>
-            <a href="#" class="nav-link dropdown-toggle d-md-none d-sm-block" data-bs-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
-            <div class="dropdown-menu fade-up m-0">
-                <a href="{{ route('login') }}" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i>{{ __("Log in")  }}</a>
-                <a href="{{ route('register') }}" class="dropdown-item"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>
-            </div>
+{{--            <a href="#" class="nav-link dropdown-toggle d-md-none d-sm-block" data-bs-toggle="dropdown"><i class="fa-solid fa-user"></i></a>--}}
+{{--            <div class="dropdown-menu fade-up m-0">--}}
+{{--                <a href="{{ route('login') }}" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i>{{ __("Log in")  }}</a>--}}
+{{--                <a href="{{ route('register') }}" class="dropdown-item"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>--}}
+{{--            </div>--}}
         </div>
     </div>
 </nav>

@@ -27,7 +27,6 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
      */
     public function handle()
     {
-        try {
             $client = new Client();
 
             $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/players/squads?team=529', [
@@ -42,10 +41,9 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
 
             $players = $data['response'][0]['players'];
 
-            $playersData = [];
-
             // Foreach for send data to table top_assist
             foreach ($players as $player) {
+                $playersData = [];
                 $playerStats = [];
 
                 // Api for get player stats
@@ -123,28 +121,25 @@ class addRecordsToPlayerTableAndPlayersStatsTable extends Command
                 //sleep foreach beacuse to many request on 5 seconds
                 sleep(2);
 
+                $requestData = [
+                    'players' => $playersData,
+                ];
+
+                $jsonRequest = json_encode($requestData);
+
+                $apiResponse = $client->request('POST', 'http://localhost/api/player', [
+                    'body' => $jsonRequest,
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                    ],
+                ]);
+
             }
-
-            $requestData = [
-                'players' => $playersData,
-            ];
-
-            $jsonRequest = json_encode($requestData);
-
-            $apiResponse = $client->request('POST', 'http://localhost/api/player', [
-                'body' => $jsonRequest,
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
-            ]);
 
             $apiResponseData = $apiResponse->getBody();
 
             $this->info($apiResponseData);
-        }catch (\Exception $e) {
-            // Logowanie błędu
-            Log::error('Error while adding records: ' . $e->getMessage());
-        }
+
 
     }
 }

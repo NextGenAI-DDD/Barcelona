@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BarcelonaTeam\PlayerController;
+use App\Http\Controllers\Api\LaLiga\GameController;
 use App\Http\Controllers\Api\LaLiga\LaLigaTabelaController;
 use App\Http\Controllers\Api\LaLiga\TopAssistController;
 use App\Http\Controllers\Api\LaLiga\TopScoreController;
@@ -35,6 +36,10 @@ Route::apiResource('top-score',TopScoreController::class)->except([
 ]);
 
 Route::apiResource('player',PlayerController::class)->except([
+    'create', 'show', 'edit'
+]);
+
+Route::apiResource('game',GameController::class)->except([
     'create', 'show', 'edit'
 ]);
 

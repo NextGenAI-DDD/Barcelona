@@ -19,10 +19,10 @@ return new class extends Migration
             $table->dateTime('date');
             $table->string('home_team_name');
             $table->string('home_team_logo');
-            $table->boolean('home_team_winner');
+            $table->boolean('home_team_winner')->nullable();
             $table->string('away_team_name');
             $table->string('away_team_logo');
-            $table->boolean('away_team_winner');
+            $table->boolean('away_team_winner')->nullable();
             $table->string('league_name');
             $table->string('league_logo');
             $table->string('league_round');

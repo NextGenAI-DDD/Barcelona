@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,4 +36,55 @@ class Game extends Model
         'home_penalty',
         'away_penalty',
     ];
+
+    /**
+     * @return mixed
+     */
+    public function getDate(): ?string
+    {
+        // Check if $this->date is set and is not an empty string
+        if ($this->date !== null && $this->date !== '') {
+            // Convert the date string to a DateTime object
+            $dateObject = new DateTime($this->date);
+
+            // Format the date
+            return $dateObject->format("d.m.Y");
+        }
+
+        // If $this->date is not set or empty, return null or handle it as needed
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTime(): ?string
+    {
+        // Check if $this->date is set and is not an empty string
+        if ($this->date !== null && $this->date !== '') {
+            // Convert the date string to a DateTime object
+            $dateObject = new DateTime($this->date);
+
+            // Format the date
+            return $dateObject->format("H:i");
+        }
+
+        // If $this->date is not set or empty, return null or handle it as needed
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNowDate(): ?string
+    {
+        $now = new DateTime('now');
+        return $now->format('Y-m-d H:i:s');
+    }
+
+
+
+
 }
+
+

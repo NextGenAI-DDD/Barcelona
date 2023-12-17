@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\BarcelonaTeam\PlayerController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LaLiga\GameController;
 use App\Http\Controllers\LaLiga\LaLigaTableController;
 use App\Http\Controllers\LaLiga\TopAssistController;
 use App\Http\Controllers\LaLiga\TopScoreController;
@@ -29,7 +30,7 @@ Route::group(['prefix' => 'laLiga'], function () {
     Route::get('/table', [laLigaTableController::class, 'index'])->name('laLiga.table');
     Route::get('/topAssistants', [TopAssistController::class, 'index'])->name('laLiga.topAssistants');
     Route::get('/topScores', [TopScoreController::class, 'index'])->name('laLiga.topScores');
-//    Route::get('/games', [GameController::class, 'index'])->name('laLiga.games');
+    Route::get('/games', [GameController::class, 'index'])->name('laLiga.games');
 });
 
 
