@@ -95,7 +95,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">{{ __('Main Page') }}</a>
-            <a href="/players" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">{{ __('Players') }}</a>
+            <a href="/players" class="nav-item nav-link {{ request()->is('players') ? 'active' : '' }}">{{ __('Players') }}</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('laLiga*') ? 'active' : '' }}" data-bs-toggle="dropdown">{{ __('League') }}</a>
                 <div class="dropdown-menu fade-up m-0">
@@ -129,5 +129,6 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 @include('includes.footer')
+@stack('scripts')
 </body>
 </html>

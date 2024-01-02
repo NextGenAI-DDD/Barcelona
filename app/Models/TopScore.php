@@ -22,6 +22,8 @@ class TopScore extends Model
         'goals',
         'games_appearances',
         'games_minutes',
-        'games_position'
+        'games_position',
+        'club_name',
+        'club_logo'
     ];
 }

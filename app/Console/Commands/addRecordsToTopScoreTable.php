@@ -54,7 +54,9 @@ class addRecordsToTopScoreTable extends Command
                     'games_appearances' => $statistics['games']['appearences'],
                     'games_minutes' => $statistics['games']['minutes'],
                     'games_position' => $statistics['games']['position'],
-                    'goals' => $statistics['goals']['total']
+                    'goals' => $statistics['goals']['total'],
+                    'club_name' => $statistics['team']['name'],
+                    'club_logo' => $statistics['team']['logo']
                 ];
             }
             $jsonRequest = json_encode($requestData);

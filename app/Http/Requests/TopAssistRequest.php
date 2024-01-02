@@ -27,7 +27,9 @@ class TopAssistRequest extends FormRequest
             '*.games_appearances'  => ['required', 'integer'],
             '*.games_minutes'  => ['required', 'integer'],
             '*.games_position'  => ['required', 'string', 'max:15'],
-            '*.goals_assists'  => ['required', 'integer']
+            '*.goals_assists'  => ['required', 'integer'],
+            '*.club_name' => ['required', 'string', 'max:80'],
+            '*.club_logo' => ['required', 'string', 'max:180'],
         ];
     }
 }

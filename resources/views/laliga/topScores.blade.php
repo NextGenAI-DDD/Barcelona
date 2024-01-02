@@ -12,6 +12,7 @@
             <tr>
                 <th>{{ __('Rank') }}</th>
                 <th>{{ __('Player') }}</th>
+                <th>{{ __('Team') }}</th>
                 <th class="text-center">{{ __('Games Appearances') }}</th>
                 <th class="text-center">{{ __('Games Minutes') }}</th>
                 <th class="text-center">{{ __('Games Position') }}</th>
@@ -24,6 +25,7 @@
                 <tr class="mb-4">
                     <td>{{ $key+1 }}.</td>
                     <td><img src="{{ asset($player->photo) }}" style="height: 20px" alt="photo"> {{ $player->name }}</td>
+                    <td><img src="{{ asset($player->club_logo) }}" style="height: 20px" alt="photo"> {{ $player->club_name }}</td>
                     <td class="text-center">{{ $player->games_appearances }}</td>
                     <td class="text-center">{{ $player->games_minutes }}</td>
                     <td class="text-center">@if($player->games_position == 'Attacker') {{ __('Attacker')}} @elseif($player->games_position == 'Midfielder') {{ __('Midfielder')}}@else {{ __('Defender')}} @endif</td>

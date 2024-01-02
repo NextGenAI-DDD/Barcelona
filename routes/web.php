@@ -34,7 +34,7 @@ Route::group(['prefix' => 'laLiga'], function () {
 });
 
 
-Route::get('/player', [PlayerController::class, 'index'])->name('player');
+Route::get('/players', [PlayerController::class, 'index'])->name('player');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 

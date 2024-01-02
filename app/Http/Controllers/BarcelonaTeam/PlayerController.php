@@ -19,8 +19,10 @@ class PlayerController extends Controller
      * @return Renderable
      * @throws GuzzleException
      */
-    public function index(): Renderable
+    public function index()
     {
-        return self::index();
+        $players = Player::with('playerStats')->get();
+
+        return view('barcelona.players', compact('players'));
     }
 }

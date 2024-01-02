@@ -35,7 +35,7 @@
                                             @endif
                                         </div>
                                         <div class="col-sm-1 mt-5"><h4>{{ $game->goals_away }}</h4></div>
-                                        <div class="col-sm-4" style="margin-top: 35px"><img data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $game->away_team_name }}" src="{{ $game->away_team_logo }}" alt="{{ $game->away_team_name}}" style="width: 50px"></div>
+                                        <div class="col-sm-4" style="margin-top: 35px"><img data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $game->away_team_name }}" src="{{ $game->away_team_logo }}" alt="{{ $game->away_team_name}}" @if($game->away_team_name == 'Juventus') style="width: 30px;" @else style="width: 50px;" @endif ></div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="info{{$key}}">

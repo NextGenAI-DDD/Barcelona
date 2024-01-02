@@ -23,6 +23,8 @@ class TopScoreResource extends JsonResource
                 'games_minutes' => $this->games_minutes,
                 'games_position' => $this->games_position,
                 'goals' => $this->goals,
+                'club_name' => $this->club_name,
+                'club_logo' => $this->club_logo,
             ]
         ];
     }

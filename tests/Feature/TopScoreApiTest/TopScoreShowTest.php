@@ -38,7 +38,9 @@ class TopScoreShowTest extends TestCase
                         'games_appearances' => $topAssist1->games_appearances,
                         'games_minutes' => $topAssist1->games_minutes,
                         'games_position' => $topAssist1->games_position,
-                        'goals' => $topAssist1->goals
+                        'goals' => $topAssist1->goals,
+                        'club_name' => $topAssist1->club_name,
+                        'club_logo' => $topAssist1->club_logo
                     ]
                 ],
                 [
@@ -49,7 +51,9 @@ class TopScoreShowTest extends TestCase
                         'games_appearances' => $topAssist2->games_appearances,
                         'games_minutes' => $topAssist2->games_minutes,
                         'games_position' => $topAssist2->games_position,
-                        'goals' => $topAssist2->goals
+                        'goals' => $topAssist2->goals,
+                        'club_name' => $topAssist2->club_name,
+                        'club_logo' => $topAssist2->club_logo
                     ]
                 ]
             ]

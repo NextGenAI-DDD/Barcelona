@@ -22,6 +22,8 @@ class TopAssist extends Model
         'games_appearances',
         'games_minutes',
         'games_position',
-        'goals_assists'
+        'goals_assists',
+        'club_name',
+        'club_logo'
     ];
 }

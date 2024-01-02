@@ -27,7 +27,9 @@ class TopScoreRequest extends FormRequest
             '*.goals'  => ['required', 'integer'],
             '*.games_appearances'  => ['required', 'integer'],
             '*.games_minutes'  => ['required', 'integer'],
-            '*.games_position'  => ['required', 'string', 'max:15']
+            '*.games_position'  => ['required', 'string', 'max:15'],
+            '*.club_name' => ['required', 'string', 'max:80'],
+            '*.club_logo' => ['required', 'string', 'max:180'],
         ];
     }
 }

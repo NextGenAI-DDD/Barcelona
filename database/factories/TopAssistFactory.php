@@ -26,6 +26,8 @@ class TopAssistFactory extends Factory
             'games_minutes' => fake()->randomNumber(3),
             'games_position' => fake()->word,
             'goals_assists' => fake()->randomNumber(2),
+            'club_name' => fake()->word(),
+            'club_logo' => fake()->imageUrl(),
         ];
     }
 }

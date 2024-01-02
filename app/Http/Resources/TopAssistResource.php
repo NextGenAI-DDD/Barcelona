@@ -23,6 +23,8 @@ class TopAssistResource extends JsonResource
                     'games_minutes' => $this->games_minutes,
                     'games_position' => $this->games_position,
                     'goals_assists' => $this->goals_assists,
+                    'club_name' => $this->club_name,
+                    'club_logo' => $this->club_logo,
             ]
         ];
     }

@@ -53,7 +53,9 @@ class addRecordsToTopAssistTable extends Command
                     'games_appearances' => $statistics['games']['appearences'],
                     'games_minutes' => $statistics['games']['minutes'],
                     'games_position' => $statistics['games']['position'],
-                    'goals_assists' => $statistics['goals']['assists']
+                    'goals_assists' => $statistics['goals']['assists'],
+                    'club_name' => $statistics['team']['name'],
+                    'club_logo' => $statistics['team']['logo']
                 ];
             }
             $jsonRequest = json_encode($requestData);

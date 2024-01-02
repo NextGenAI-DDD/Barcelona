@@ -27,6 +27,8 @@ class TopScoreStoreTest extends TestCase
                 'games_minutes' => $player->games_minutes,
                 'games_position' => $player->games_position,
                 'goals' => $player->goals,
+                'club_name' => $player->club_name,
+                'club_logo' => $player->club_logo
             ];
         }
 
@@ -42,6 +44,8 @@ class TopScoreStoreTest extends TestCase
                     'games_minutes' => $player->games_minutes,
                     'games_position' => $player->games_position,
                     'goals' => $player->goals,
+                    'club_name' => $player->club_name,
+                    'club_logo' => $player->club_logo
                 ]
             ];
         }
