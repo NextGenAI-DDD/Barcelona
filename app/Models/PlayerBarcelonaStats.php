@@ -65,7 +65,11 @@ class PlayerBarcelonaStats extends Model
         return $this->belongsTo(Player::class,'player_id');
     }
 
-
+    public function getBirthDate(): string
+    {
+        $date = new \DateTime($this->birth_date);
+        return $date->format('d.m.Y');
+    }
 
 
 

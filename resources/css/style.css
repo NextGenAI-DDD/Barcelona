@@ -477,3 +477,14 @@ textarea.input100{min-height:150px;border-radius:25px;padding:14px 30px}
 
 @media(max-width:992px){.alert-validate::before{visibility:visible;opacity:1}}
 
+/*tabele sticky*/
+.sticky-left{
+    position: sticky;
+    left: -2px;
+}
+
+.sticky-left2{
+    position: sticky;
+    left: 25px;
+}
+

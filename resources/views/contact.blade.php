@@ -4,9 +4,14 @@
     <div class="bg-contact100">
         <div class="container-contact100">
             <div class="wrap-contact100">
+                <div class="col-sm-12 d-md-none mx-auto" style="margin-top: -100px">
+                    <img src="{{ asset('storage/img/herb.png') }}" alt="herb" style="width: 150px">
+                </div>
+
                 <div class="contact100-pic js-tilt" data-tilt>
                     <img src="{{ asset('storage/img/mail.png') }}" alt="IMG">
                 </div>
+
                 <form class="contact100-form validate-form" action="">
                     @csrf
                     <div class="wrap-input100">
