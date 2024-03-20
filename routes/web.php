@@ -36,6 +36,7 @@ Route::group(['prefix' => 'laLiga'], function () {
 
 Route::get('/players', [PlayerController::class, 'index'])->name('player');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post ('/send-mail',[ContactController::class,'sendMail'])->name('send_mail');
 
 
 Auth::routes([

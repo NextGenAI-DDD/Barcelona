@@ -25,8 +25,8 @@
                 @foreach ($topAssistants as $key => $player)
                     <tr class="mb-4">
                         <td class="sticky-left">{{ $key+1 }}.</td>
-                        <td class="sticky-left2"><img src="{{ asset($player->photo) }}" style="height: 20px" alt="photo"> {{ $player->name }}</td>
-                        <td><img src="{{ asset($player->club_logo) }}" style="height: 20px" alt="photo"> {{ $player->club_name }}</td>
+                        <td class="sticky-left2"><img src="{{ secure_asset($player->photo) }}" style="height: 20px" alt="photo"> {{ $player->name }}</td>
+                        <td><img src="{{ secure_asset($player->club_logo) }}" style="height: 20px" alt="photo"> {{ $player->club_name }}</td>
                         <td class="text-center">{{ $player->games_appearances }}</td>
                         <td class="text-center">{{ $player->games_minutes }}</td>
                         <td class="text-center">@if($player->games_position == 'Attacker') {{ __('Attacker')}} @elseif($player->games_position == 'Midfielder') {{ __('Midfielder')}}@else {{ __('Defender')}} @endif</td>

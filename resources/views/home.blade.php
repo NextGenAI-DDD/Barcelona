@@ -6,7 +6,7 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('storage/img/stadiontlo.png') }}" alt="Image">
+                    <img class="w-100" src="{{ secure_asset('storage/img/stadiontlo.png') }}" alt="Image">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -15,7 +15,7 @@
                                     <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Lionel Andrés Messi Cuccittini</h1>
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
-                                    <img class="img-fluid" src="{{ asset('storage/img/messiTlo.jpg') }}" alt="">
+                                    <img class="img-fluid" src="{{ secure_asset('storage/img/messiTlo.jpg') }}" alt="">
                                 </div>
                             </div>
                         </div>

@@ -99,7 +99,7 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-0 bg-navbar">
     <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <img src="{{ asset('storage/img/herb.png') }}" style="width: 100px">
+        <img src="{{ secure_asset('storage/img/herb.png') }}" style="width: 100px">
     </a>
     <button class="navbar-toggler me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

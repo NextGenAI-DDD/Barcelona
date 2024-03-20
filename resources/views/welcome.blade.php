@@ -6,7 +6,7 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('storage/img/stadion.jpg') }}" alt="Stadion">
+                    <img class="w-100" src="{{ secure_asset('storage/img/stadion.jpg') }}" alt="Stadion">
                 </div>
             </div>
         </div>

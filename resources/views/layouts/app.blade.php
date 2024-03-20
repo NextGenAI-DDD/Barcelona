@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ secure_asset('storage/img/favicon.ico') }}">
 
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="description" content="BarcelonaFunClubPolska, jeśli jesteś prawdziwym Cule musisz wejść na tą stronę">
+    <meta name="keywords"  content="Barcelona, FunClub, Polska, BarcelonaFunClub">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -85,9 +87,10 @@
 </div>
 <!-- Topbar End -->
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-0 bg-navbar">
+<nav class="navbar navbar-expand-lg bg-white navbar-dark shadow p-0 bg-navbar">
     <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <img src="{{ asset('storage/img/herb.png') }}" style="width: 100px">
+        <img class="d-none d-sm-block" src="{{ secure_asset('storage/img/herb.png') }}" style="width: 100px">
+        <img class="d-md-none" src="{{ secure_asset('storage/img/herb.png') }}" style="width: 100px; margin-left: -20px">
     </a>
     <button class="navbar-toggler me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DemoMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -31,5 +33,18 @@ class ContactController extends Controller
             'subject' => ['required', 'string', 'max:255'],
             'message' => ['required', 'string', 'max:255'],
         ]);
+    }
+
+    /**
+     * Send email function
+     *
+     */
+    public function sendMail(Request $request)
+    {
+//        Mail::to('kemski12321@gmail.com')->send(new DemoMail($request));
+
+        return redirect()->route('contact')
+            ->with('success','Email pomyślnie wysłany.');
+
     }
 }

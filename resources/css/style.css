@@ -1,4 +1,6 @@
-
+body{
+    font-family: Playfair Display;
+}
 .bg-navbar {
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #001fbe, #a60004);
@@ -115,17 +117,16 @@
     margin-left: 8px;
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-dark .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #ebe424;
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
 }
 
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
     color: #ebe424;
 }
 
@@ -487,4 +488,8 @@ textarea.input100{min-height:150px;border-radius:25px;padding:14px 30px}
     position: sticky;
     left: 25px;
 }
+
+/* custom sweet alert */
+
+
 
