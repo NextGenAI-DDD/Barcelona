@@ -30,7 +30,7 @@ class addRecordsToTopScoreTable extends Command
         try {
             $client = new Client();
 
-            $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/players/topscorers?league=140&season=2023', [
+            $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/players/topscorers?league=140&season=2024', [
                 'headers' => [
                     'X-RapidAPI-Host' => 'api-football-v1.p.rapidapi.com',
                     'X-RapidAPI-Key' => 'b918db7937msh635c1bfaeff0577p1e7a14jsn98d8e96cd7ec',

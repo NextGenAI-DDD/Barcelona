@@ -10,10 +10,8 @@ RUN apt-get update -y && apt-get install -y \
     unzip \
     && docker-php-ext-install pdo pdo_mysql
 
-# Ustawienie katalogu roboczego
 WORKDIR /var/www
 
-# Kopiowanie plików źródłowych do kontenera
 COPY . .
 
 COPY ./docker/vhost.conf /etc/apache2/sites-available/000-default.conf
@@ -32,5 +30,3 @@ RUN cd public && ln -sf ../storage/app/public/ storage
 RUN a2enmod rewrite
 
 ENV PORT=80
-
-ENTRYPOINT ["docker/entrypoint.sh"]
