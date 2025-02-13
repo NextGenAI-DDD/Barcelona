@@ -1,14 +1,16 @@
-# Użyj oficjalnie zalecanego obrazu PHP w wersji 8.3
-FROM php:8.3-apache
+# Użyj oficjalnego obrazu PHP 8.4
+FROM php:8.4-apache
 
 # Instalacja zależności
 RUN apt-get update -y && apt-get install -y \
-    nodejs \
-    npm \
     curl \
     zip \
     unzip \
     && docker-php-ext-install pdo pdo_mysql
+
+# Instalacja Node.js 20.x
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs
 
 WORKDIR /var/www
 
@@ -20,13 +22,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN chown -R www-data:www-data /var/www
 
-RUN npm install -g npm@latest
-RUN npm install
-
-RUN composer install --no-interaction --no-progress
-
-RUN cd public && ln -sf ../storage/app/public/ storage
+RUN chmod +x /var/www/docker/entrypoint.sh
 
 RUN a2enmod rewrite
 
 ENV PORT=80
+
+ENTRYPOINT ["docker/entrypoint.sh"]

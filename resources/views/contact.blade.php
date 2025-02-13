@@ -5,11 +5,11 @@
         <div class="container-contact100">
             <div class="wrap-contact100">
                 <div class="col-sm-12 d-md-none mx-auto" style="margin-top: -100px">
-                    <img src="{{ secure_asset('storage/img/herb.png') }}" alt="herb" style="width: 150px">
+                    <img src="{{ asset('storage/img/herb.png') }}" alt="herb" style="width: 150px">
                 </div>
 
                 <div class="contact100-pic js-tilt" data-tilt>
-                    <img src="{{ secure_asset('storage/img/mail.png') }}" alt="IMG">
+                    <img src="{{ asset('storage/img/mail.png') }}" alt="IMG">
                 </div>
 
                 <form class="contact100-form validate-form" action="{{ route('send_mail') }}" method="post" enctype="multipart/form-data">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="container-contact100-form-btn">
                         <button class="contact100-form-btn" id="contact_submit">
-                            {{ __('Send') }} <img src="{{ secure_asset('storage/img/herb.png') }}" alt="herb" style="width: 40px">
+                            {{ __('Send') }} <img src="{{ asset('storage/img/herb.png') }}" alt="herb" style="width: 40px">
                         </button>
                     </div>
                 </form>

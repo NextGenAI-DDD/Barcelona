@@ -8,12 +8,12 @@
                 <div class="col-sm-4">
                     <div class="card testimonial-card mt-2 mb-3">
                         <div class="card-up aqua-gradient">
-                            <img src="{{ secure_asset('storage/img/herb.png') }}" style="width: 100px" alt="herb">
+                            <img src="{{ asset('storage/img/herb.png') }}" style="width: 100px" alt="herb">
                             <div class="float-end me-3 mt-3"><h3 style="color: yellow">{{ $player->number }}</h3></div>
 
                         </div>
                         <div class="avatar mx-auto white">
-                            <img src="{{ secure_asset($player->photo) }}" class="rounded-circle img-fluid"
+                            <img src="{{ asset($player->photo) }}" class="rounded-circle img-fluid"
                                  alt="woman avatar">
                         </div>
                         <div class="card-body text-center">

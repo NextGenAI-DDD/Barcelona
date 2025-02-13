@@ -3,9 +3,9 @@ services:
         build:
             context: .
         ports:
-            - 8080:80
+            - 8082:80
         volumes:
-            - .:/var/www
+            - .:/var/www/
         networks:
             - barcelona-network
     mysql:
@@ -54,6 +54,13 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+    mailhog:
+        image: mailhog/mailhog
+        ports:
+            - "8025:8025"
+            - "1025:1025"
+        networks:
+            - barcelona-network
 
 networks:
     barcelona-network:

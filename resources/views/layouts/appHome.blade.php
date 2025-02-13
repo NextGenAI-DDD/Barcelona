@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <link rel="icon" type="image/x-icon" href="{{ secure_asset('storage/img/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
 
 
     <!-- CSRF Token -->
@@ -55,7 +55,7 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-0 bg-navbar">
     <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <img src="{{ secure_asset('storage/img/herb.png') }}" style="width: 200px">
+        <img src="{{ asset('storage/img/herb.png') }}" style="width: 200px">
     </a>
     <button class="navbar-toggler me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -95,10 +95,10 @@
             <!-- User -->
             <div class="dropdown">
                 <a class="btn btn-sm-square nav-link d-sm-none" href="#" role="button" data-bs-toggle="dropdown">
-                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ secure_asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44" alt="" loading="lazy" />
+                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44" alt="" loading="lazy" />
                 </a>
                 <a class="btn btn-sm-square nav-link d-none d-sm-flex ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown">
-                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ secure_asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44"
+                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44"
                          alt="" loading="lazy" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end me-2">

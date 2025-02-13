@@ -1,5 +1,5 @@
 start:
-	docker compose up -d
+	docker compose start
 
 stop:
 	docker compose down
@@ -8,7 +8,7 @@ restart:
 	docker compose restart
 
 build:
-	docker compose build --no-cache
+	docker compose up --build -d
 
 exec:
 	docker compose exec barcelona bash

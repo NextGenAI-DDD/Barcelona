@@ -6,9 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "api-platform/laravel": "^4.0",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^11.0",
+        "laravel/framework": "11.31.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2"
