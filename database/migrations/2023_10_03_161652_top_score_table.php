@@ -11,7 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('top_score', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('photo');
+            $table->integer('goals');
+            $table->integer('games_appearances');
+            $table->integer('games_minutes');
+            $table->string('games_position');
+            $table->string('club_name');
+            $table->string('club_logo');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('top_score');
     }
 };

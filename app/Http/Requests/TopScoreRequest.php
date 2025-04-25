@@ -11,7 +11,7 @@ class TopScoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class TopScoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            '*.name' => ['required'],
+            '*.photo'  => ['required', 'string', 'max:80'],
+            '*.goals'  => ['required', 'integer'],
+            '*.games_appearances'  => ['required', 'integer'],
+            '*.games_minutes'  => ['required', 'integer'],
+            '*.games_position'  => ['required', 'string', 'max:15'],
+            '*.club_name' => ['required', 'string', 'max:80'],
+            '*.club_logo' => ['required', 'string', 'max:180'],
         ];
     }
 }

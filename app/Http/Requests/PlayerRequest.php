@@ -11,7 +11,7 @@ class PlayerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class PlayerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-        ];
+                'players' => ['array'],
+                'players.*.name' => ['required', 'string', 'max:255'],
+                'players.*.age' => ['required', 'integer'],
+                'players.*.number' => ['required', 'nullable'],
+                'players.*.position' => ['required', 'string', 'max:20'],
+                'players.*.photo' => ['required', 'string'],
+            ];
     }
 }

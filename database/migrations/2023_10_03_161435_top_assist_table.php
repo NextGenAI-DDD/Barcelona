@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('photo');
             $table->integer('goals_assists');
-            $table->integer('games_appearences');
+            $table->integer('games_appearances');
             $table->integer('games_minutes');
             $table->string('games_position');
+            $table->string('club_name');
+            $table->string('club_logo');
             $table->timestamps();
         });
     }

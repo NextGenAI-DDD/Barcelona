@@ -1,4 +1,6 @@
-
+body{
+    font-family: Playfair Display;
+}
 .bg-navbar {
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #001fbe, #a60004);
@@ -115,17 +117,16 @@
     margin-left: 8px;
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-dark .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #FFFFFF;
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
 }
 
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
     color: #ebe424;
 }
 
@@ -227,7 +228,7 @@
 
 /*** Facts ***/
 .fact {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messitlo.jpg);
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messiTlo.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -251,7 +252,7 @@
 
 /*** Booking ***/
 .booking {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messitlo.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../storage/app/public/img/messiTlo.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -351,7 +352,7 @@ div.container-fluid.scroll-aktywny {
 }
 
 .footer {
-    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../storage/app/public/img/messitlo.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../storage/app/public/img/messiTlo.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -444,5 +445,51 @@ div.container-fluid.scroll-aktywny {
     border: 5px solid #fff;
     border-radius: 50%;
 }
+
+
+
+
+
+
+
+input{outline:none;border:none}textarea{outline:none;border:none}textarea:focus,input:focus{border-color:transparent!important}
+
+button{outline:none!important;border:none;background:0 0}button:hover{cursor:pointer}iframe{border:none!important}.bg-contact100{width:100%;background-repeat:no-repeat;background-position:center center;background-size:cover}
+.container-contact100{width:100%;min-height:100vh;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:15px;background:linear-gradient(rgba(1, 11, 120, .8), rgba(1, 11, 120, .8)), url(../../storage/app/public/img/barcelona_miasto.jpg)}
+.wrap-contact100{width:1163px;background:#fff;border-radius:10px;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:space-between;padding:110px 130px 157px 148px}
+.contact100-pic{width:310px;padding-top:55px}
+.contact100-pic img{max-width:100%}
+.contact100-form{width:390px}
+.contact100-form-title{display:block;font-family:Montserrat-ExtraBold;font-size:24px;color:#333;line-height:1.2;text-align:left;padding-bottom:36px}
+input.input100{height:50px;border-radius:25px;padding:0 30px 0 50px}
+input.input100[name=email]{padding:0 30px 0 54px}
+textarea.input100{min-height:150px;border-radius:25px;padding:14px 30px}
+.wrap-input100{position:relative;width:100%;z-index:1;margin-bottom:10px}
+.input100{display:block;width:100%;background:#e6e6e6;font-family:Montserrat-Bold;font-size:15px;line-height:1.5;color:#666}
+.focus-input100{display:block;position:absolute;border-radius:25px;bottom:0;left:0;z-index:-1;width:100%;height:100%;box-shadow:0 0;color:rgba(1, 11, 120,.5)}
+.input100:focus+.focus-input100{-webkit-animation:anim-shadow .5s ease-in-out forwards;animation:anim-shadow .5s ease-in-out forwards}
+@-webkit-keyframes anim-shadow{to{box-shadow:0 0 60px 25px;opacity:0}}@keyframes anim-shadow{to{box-shadow:0 0 60px 25px;opacity:0}}
+.symbol-input100{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;align-items:center;position:absolute;border-radius:25px;bottom:0;left:0;width:100%;height:100%;padding-left:30px;pointer-events:none;color:#aaa;font-size:15px;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s}
+.input100:focus+.focus-input100+.symbol-input100{color:#020fa3;padding-left:22px}.container-contact100-form-btn{width:100%;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;padding-top:20px}
+.contact100-form-btn{width:100%;height:50px;border-radius:25px;background:#020fa3;font-family:Montserrat-Bold;font-size:15px;line-height:1.5;color:#fff;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;justify-content:center;align-items:center;padding:0 25px;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s}
+.contact100-form-btn:hover{background:#333}@media(max-width:1200px){.contact100-pic{width:33.5%}.contact100-form{width:44%}}@media(max-width:992px){.wrap-contact100{padding:110px 80px 157px 90px}
+    .contact100-pic{width:35%}.contact100-form{width:55%}}@media(max-width:768px){.wrap-contact100{padding:110px 80px 157px}.contact100-pic{display:none}
+    .contact100-form{width:100%}}@media(max-width:576px){.wrap-contact100{padding:110px 15px 157px}}.validate-input{position:relative}
+
+@media(max-width:992px){.alert-validate::before{visibility:visible;opacity:1}}
+
+/*tabele sticky*/
+.sticky-left{
+    position: sticky;
+    left: -2px;
+}
+
+.sticky-left2{
+    position: sticky;
+    left: 25px;
+}
+
+/* custom sweet alert */
+
 
 

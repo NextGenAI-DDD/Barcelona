@@ -19,9 +19,11 @@ class TopAssist extends Model
     protected $fillable = [
         'name',
         'photo',
-        'games_appearences',
+        'games_appearances',
         'games_minutes',
         'games_position',
-        'goals_assists'
+        'goals_assists',
+        'club_name',
+        'club_logo'
     ];
 }

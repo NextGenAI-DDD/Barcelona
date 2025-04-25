@@ -10,6 +10,8 @@ class PlayerBarcelonaStats extends Model
 {
     use HasFactory;
 
+    protected $table = 'player_stats';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +24,7 @@ class PlayerBarcelonaStats extends Model
         'weight',
         'nationality',
         'injured',
-        'games_appearences',
+        'games_appearances',
         'games_lineups',
         'games_minutes',
         'games_rating',
@@ -60,7 +62,15 @@ class PlayerBarcelonaStats extends Model
 
     public function player(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Player','player_id');
+        return $this->belongsTo(Player::class,'player_id');
     }
+
+    public function getBirthDate(): string
+    {
+        $date = new \DateTime($this->birth_date);
+        return $date->format('d.m.Y');
+    }
+
+
 
 }

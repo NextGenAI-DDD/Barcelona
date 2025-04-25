@@ -1,18 +1,21 @@
 #!/bin/bash
 
-# Sprawdź, czy folder "vendor" istnieje
 if [ ! -d "vendor" ]; then
-  # Jeśli folder "vendor" nie istnieje, wykonaj instalację Composer-a i zależności
   composer install
 fi
 
-# Generowanie klucza
-php artisan key:generate
+if [ ! -d "node_modules" ]; then
+  npm install
+fi
 
-# Czyszczenie cache
+php artisan key:generate
+php artisan migrate
+php artisan db:seed --class=DatabaseSeeder --database=mysql_test
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
+php artisan storage:link
+npm run build
+#php artisan queue:work
 
-# Uruchomienie serwera
-php artisan serve --port=$PORT --host=0.0.0.0
+exec docker-php-entrypoint apache2-foreground

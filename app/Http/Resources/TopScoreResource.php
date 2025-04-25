@@ -14,6 +14,18 @@ class TopScoreResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return[
+            'player' => [
+                'id' => $this->id,
+                'name' => $this->name,
+                'photo' => $this->photo,
+                'games_appearances' => $this->games_appearances,
+                'games_minutes' => $this->games_minutes,
+                'games_position' => $this->games_position,
+                'goals' => $this->goals,
+                'club_name' => $this->club_name,
+                'club_logo' => $this->club_logo,
+            ]
+        ];
     }
 }

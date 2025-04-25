@@ -11,7 +11,7 @@ class TopAssistRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,14 @@ class TopAssistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
-            'photo'  => ['required', 'string', 'max:80'],
-            'goals'  => ['required', 'integer'],
-            'games_appearences'  => ['required', 'integer'],
-            'games_minutes'  => ['required', 'integer'],
-            'games_position'  => ['required', 'string', 'max:15'],
-            'goals_assists'  => ['required', 'integer']
+            '*.name' => ['required'],
+            '*.photo'  => ['required', 'string', 'max:80'],
+            '*.games_appearances'  => ['required', 'integer'],
+            '*.games_minutes'  => ['required', 'integer'],
+            '*.games_position'  => ['required', 'string', 'max:15'],
+            '*.goals_assists'  => ['required', 'integer'],
+            '*.club_name' => ['required', 'string', 'max:80'],
+            '*.club_logo' => ['required', 'string', 'max:180'],
         ];
     }
 }

@@ -2,13 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Models\LaLigaTable;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Log;
 
-class AddRecordsToLaLigaTable extends Command
+class addRecordsToLaLigaTable extends Command
 {
 
     /**
@@ -16,7 +14,7 @@ class AddRecordsToLaLigaTable extends Command
      *
      * @var string
      */
-    protected $signature = 'add-records-to-la-liga-table';
+    protected $signature = 'app:add-records-to-la-liga-table';
 
     /**
      * The console command description.
@@ -36,7 +34,7 @@ class AddRecordsToLaLigaTable extends Command
         $client = new Client();
 
         // Execute request to API
-        $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/standings?season=2023&league=140', [
+        $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=140', [
             'headers' => [
                 'X-RapidAPI-Host' => 'api-football-v1.p.rapidapi.com',
                 'X-RapidAPI-Key' => 'b918db7937msh635c1bfaeff0577p1e7a14jsn98d8e96cd7ec',
@@ -70,7 +68,7 @@ class AddRecordsToLaLigaTable extends Command
 
             $jsonRequest = json_encode($requestData);
 
-            $apiResponse = $client->request('POST', 'http://localhost:8000/api/laLigaTable', [
+            $apiResponse = $client->request('POST', 'http://localhost/api/laLigaTable', [
                 'body' => $jsonRequest,
                 'headers' => [
                     'Content-Type' => 'application/json',
