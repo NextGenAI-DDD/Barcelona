@@ -29,8 +29,7 @@ class Kernel extends ConsoleKernel
        $schedule->command('app:add-records-to-la-liga-table')->dailyAt('5:01');
        $schedule->command('app:add-records-to-top-assist-table')->dailyAt('5:02');
        $schedule->command('app:add-records-to-top-score-table')->dailyAt('5:03');
-       $schedule->command('app:add-records-to-player-stats-table')->dailyAt('5:04');
-       $schedule->command('app:add-records-to-player-table')->dailyAt('5:04');
+       $schedule->command('app:add-records-to-player-table-with-stats-table')->dailyAt('5:04');
        $schedule->command('app:add-records-to-game-table')->dailyAt('5:05');
 
     }
