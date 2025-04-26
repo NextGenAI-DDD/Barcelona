@@ -15,15 +15,11 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
 
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
     protected $signature = 'app:add-records-to-player-table-with-stats-table';
 
     /**
      * The console command description.
-     *
-     * @var string
      */
     protected $description = 'Added records to player table and player stats table from Api';
 
@@ -32,13 +28,12 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
         private ?int $season,
     ) {
         parent::__construct();
-        $this->season = (int)date('Y') - 1;
+        $this->season = (int) date('Y') - 1;
     }
 
     /**
      * Execute the console command.
      *
-     * @return void
      * @throws GuzzleException
      */
     public function handle(): void
@@ -61,7 +56,6 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     /**
      * Get team squad data
      *
-     * @return array
      * @throws GuzzleException
      */
     private function getTeamSquad(): array
@@ -77,8 +71,8 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     /**
      * Get player statistics
      *
-     * @param int $playerId
      * @return array|null
+     *
      * @throws GuzzleException
      */
     private function getPlayerStats(int $playerId): ?array
@@ -94,9 +88,6 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     /**
      * Make API request
      *
-     * @param string $url
-     * @param array $options
-     * @return array
      * @throws GuzzleException
      */
     private function makeApiRequest(string $url, array $options = []): array
@@ -113,8 +104,6 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     /**
      * Process players data
      *
-     * @param array $players
-     * @return void
      * @throws GuzzleException
      */
     private function processPlayers(array $players): void
@@ -136,8 +125,6 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     /**
      * Process individual player data
      *
-     * @param array $player
-     * @return void
      * @throws GuzzleException
      */
     private function processPlayer(array $player): void
@@ -161,18 +148,15 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
             'number' => $player['number'],
             'position' => $player['position'],
             'photo' => $player['photo'],
-            'playerStats' => $playerStats
-        ]];
+            'playerStats' => $playerStats,
+        ],
+        ];
 
         $this->savePlayerData(['players' => $playersData]);
     }
 
     /**
      * Map player statistics
-     *
-     * @param array $statsPlayer
-     * @param array $statsStatistics
-     * @return array
      */
     private function mapPlayerStats(array $statsPlayer, array $statsStatistics): array
     {
@@ -222,8 +206,6 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     /**
      * Save player data to API
      *
-     * @param array $requestData
-     * @return void
      * @throws GuzzleException
      */
     private function savePlayerData(array $requestData): void
