@@ -6,51 +6,73 @@ use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
-class addRecordsToGameTable extends Command
+class AddRecordsToGameTable extends Command
 {
-
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'app:add-records-to-game-table';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Add records to table game';
 
+    private Client $clientl;
+    private string $apiUrl;
+    private string $apiHost;
+    private string $apiKey;
+    private string $localApiUrl;
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
+    public function __construct()
+    {   
+        parent::__construct();
+        $this->client = new Client();
+        $this->apiUrl = env('FOOTBALL_API_URL');
+        $this->apiHost = env('FOOTBALL_API_HOST');
+        $this->apiKey = env('FOOTBALL_API_KEY');
+        $this->localApiUrl = env('LOCAL_API_GAME_URL');
+    } 
+
+
+    public function handle(): void
     {
         try {
-            // Create Guzzle HTTP Client
-            $client = new Client();
+            $games = $this->fetchGames();
+            $this->sendGames($games);
 
-            // Execute request to API
-            $response = $client->request('GET', 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2024&team=529', [
+            $this->info('Games added succesfully.');
+        } catch (\Exception $e) {
+            Log::error('Error while adding records: ' . $e->getMessage());
+            $this->error('An error occured while adding records.');
+        }
+    }
+
+    private function fetchGames(): array
+    {
+
+        $response = $this->client->request('Get', $this->apiUrl, [
                 'headers' => [
-                    'X-RapidAPI-Host' => 'api-football-v1.p.rapidapi.com',
-                    'X-RapidAPI-Key' => 'b918db7937msh635c1bfaeff0577p1e7a14jsn98d8e96cd7ec',
+                    'X-RapidAPI-Host' => $this->apiHost,
+                    'X-RapidAPI-Key' => $this->apiKey,
                 ],
             ]);
 
 
-            // GET data from API response
-            $data = json_decode($response->getBody(), true);
+            
+            $data = json_decode($response->getBody()->getContents(), true);
 
-            $games = $data['response'];
+            return array_map([$this, 'transormGame'], $data['response']);
+        }
 
-            $requestData = [];
+        private function sendGames(array $games): void
+        {
+            $this->client->request('Post', $this->localApiUrl, [
+                'json' => $games,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                ],
+            ]); 
+        }
 
-            foreach ($games as $game) {
-                $requestData[] = [
+        private function transformGame(array $game): array
+        {
+            return [
+
+
                     'referee' => $game['fixture']['referee'],
                     'stadium' => $game['fixture']['venue']['name'],
                     'city' => $game['fixture']['venue']['city'],
@@ -66,27 +88,10 @@ class addRecordsToGameTable extends Command
                     'league_round' => $game['league']['round'],
                     'goals_home' => $game['goals']['home'],
                     'goals_away' => $game['goals']['away'],
-                    'home_penalty' => $game['score']['penalty']['home'] == null ? 0 : $game['score']['penalty']['home'],
-                    'away_penalty' => $game['score']['penalty']['away'] == null ? 0 : $game['score']['penalty']['away'],
+                    'home_penalty' => $game['score']['penalty']['home'] ?? 0,
+                    'away_penalty' => $game['score']['penalty']['away'] ?? 0,
                 ];
-            }
-
-            $jsonRequest = json_encode($requestData);
-
-            $apiResponse = $client->request('POST', 'http://localhost/api/game', [
-                'body' => $jsonRequest,
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
-            ]);
-
-            $apiResponseData = $apiResponse->getBody();
-
-            $this->info($apiResponseData);
-        }catch (\Exception $e) {
-            // Logowanie błędu
-            Log::error('Error while adding records: ' . $e->getMessage());
         }
-    }
-}
 
+}
+    
