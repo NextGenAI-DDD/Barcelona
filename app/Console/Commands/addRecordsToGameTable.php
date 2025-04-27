@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
@@ -8,26 +10,20 @@ use Illuminate\Support\Facades\Log;
 
 class addRecordsToGameTable extends Command
 {
-
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
-    protected $signature = 'app:add-records-to-game-table';
+    protected string $signature = 'app:add-records-to-game-table';
 
     /**
      * The console command description.
-     *
-     * @var string
      */
-    protected $description = 'Add records to table game';
-
+    protected string $description = 'Add records to table game';
 
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         try {
             // Create Guzzle HTTP Client
@@ -40,7 +36,6 @@ class addRecordsToGameTable extends Command
                     'X-RapidAPI-Key' => 'b918db7937msh635c1bfaeff0577p1e7a14jsn98d8e96cd7ec',
                 ],
             ]);
-
 
             // GET data from API response
             $data = json_decode($response->getBody(), true);
@@ -66,8 +61,8 @@ class addRecordsToGameTable extends Command
                     'league_round' => $game['league']['round'],
                     'goals_home' => $game['goals']['home'],
                     'goals_away' => $game['goals']['away'],
-                    'home_penalty' => $game['score']['penalty']['home'] == null ? 0 : $game['score']['penalty']['home'],
-                    'away_penalty' => $game['score']['penalty']['away'] == null ? 0 : $game['score']['penalty']['away'],
+                    'home_penalty' => $game['score']['penalty']['home'] === null ? 0 : $game['score']['penalty']['home'],
+                    'away_penalty' => $game['score']['penalty']['away'] === null ? 0 : $game['score']['penalty']['away'],
                 ];
             }
 
@@ -83,10 +78,9 @@ class addRecordsToGameTable extends Command
             $apiResponseData = $apiResponse->getBody();
 
             $this->info($apiResponseData);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             // Logowanie błędu
             Log::error('Error while adding records: ' . $e->getMessage());
         }
     }
 }
-
