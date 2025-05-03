@@ -94,7 +94,7 @@ final class AddRecordsToPlayerTableAndPlayersStatsTable extends Command
     {
         $options['headers'] = [
             'X-RapidAPI-Host' => env('API_KEY_HOST_FOR_API_FOOTBALL'),
-            'X-RapidAPI-Key' => env('AUTHORIZATION_KEY_FOR_API'),
+            'X-RapidAPI-Key' => env('AUTHORIZATION_KEY_FOR_API_FOOTBALL'),
         ];
 
         $response = $this->client->request('GET', $url, $options);
