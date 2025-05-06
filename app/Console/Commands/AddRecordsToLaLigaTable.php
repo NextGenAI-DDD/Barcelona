@@ -26,9 +26,12 @@ final class AddRecordsToLaLigaTable extends Command
     protected $description = 'Add records to table la-liga-table';
 
     public function __construct(
-        private readonly Client $client
+        private readonly Client $client,
+        private ?int $season = null,
     ) {
         parent::__construct();
+
+        $this->season ??= (int) date('Y') - 1;
     }
 
     /**
@@ -54,9 +57,12 @@ final class AddRecordsToLaLigaTable extends Command
 
     private function getStandings(): array
     {
-        $response = $this->makeApiRequest(
-            'https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=140'
+        $url = sprintf(
+            'https://api-football-v1.p.rapidapi.com/v3/standings?season=%d%league=140'
+             $this->season 
         );
+
+        $response = $this->makeApiRequest($url);
 
         return $response['response'][0]['league']['standings'][0] ?? [];
     }
