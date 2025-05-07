@@ -114,6 +114,3 @@ final class AddRecordsToTopAssistTable extends Command
             }
       }
 }
-
-    
-
