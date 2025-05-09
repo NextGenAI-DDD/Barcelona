@@ -30,17 +30,15 @@ final class AddRecordsToTopAssistTable extends Command
 
      public function __consturct(
         private readonly Client $client,
-
         private ?int $season = null,
     ) {
         parent::__consturct();
-
         $this->season ??= (int) date('Y') - 1;
     }
 
     public function handle(): void
     {
-        $this->info(sprintf('Pobieranie danych najlepszych asystujących dla sezonu %d...', $this->season));
+       $this->info(sprintf('Pobieranie danych najlepszych asystujących dla sezonu %d...', $this->season));
 
         try {
              $topAssists = $this->getTopAssists();
@@ -51,7 +49,7 @@ final class AddRecordsToTopAssistTable extends Command
 
              $this->info('Import danych asyst zakończony!');
         }   catch (\Exception $e) {
-               $this->error('Wystąpił błąd: ' . $e->getMessage());
+             $this->error('Wystąpił błąd: ' . $e->getMessage());
                Log::error('Błąd podczas importu asyst: ' . $e->getMessage());
         }
     }
@@ -109,7 +107,8 @@ final class AddRecordsToTopAssistTable extends Command
                     ],
                 ]);
             } catch (GuzzleException $e) {
-                throw new \RuntimeException('Failed to send up top assists: ' . $e->getMessage());
+                throw new \RuntimeException(
+                    'Failed to send top assists request: ' . $e->getMessage()
 
             }
       }
