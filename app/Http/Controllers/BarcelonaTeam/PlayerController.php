@@ -4,7 +4,7 @@ namespace App\Http\Controllers\BarcelonaTeam;
 
 use App\Http\Controllers\Controller;
 use App\Models\playerBarcelonaStats;
-use App\Models\player;
+use App\Models\Player;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Support\Renderable;

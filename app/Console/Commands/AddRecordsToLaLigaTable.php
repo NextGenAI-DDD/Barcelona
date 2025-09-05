@@ -61,9 +61,9 @@ final class AddRecordsToLaLigaTable extends Command
     private function getStandings(): array
     {
         $url = sprintf(
-            'https://api-football-v1.p.rapidapi.com/v3/standings?season=%d%league=140'
-             $this->season 
-        );
+            'https://api-football-v1.p.rapidapi.com/v3/standings?season=%d&league=140'
+        $this->season);
+        
 
         $response = $this->makeApiRequest($url);
 
