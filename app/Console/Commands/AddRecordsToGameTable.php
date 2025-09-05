@@ -32,7 +32,11 @@ final class addRecordsToGameTable extends Command
         private ?int $season,
     ) {
         parent::__construct();
-        $this->season = (int) date('Y') - 1;
+        
+    $year = (int) date('Y');
+    $month = (int) date('n'); 
+
+    $this->season ??= $month >= 8 ? $year : $year - 1;
     }
 
     /**
