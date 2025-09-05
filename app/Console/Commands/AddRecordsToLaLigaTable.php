@@ -31,7 +31,10 @@ final class AddRecordsToLaLigaTable extends Command
     ) {
         parent::__construct();
 
-        $this->season ??= (int) date('Y') - 1;
+        $year = (int) date('Y');
+        $month = (int) date('n'); 
+    
+        $this->season ??= $month >= 8 ? $year : $year - 1;
     }
 
     /**
@@ -113,4 +116,4 @@ final class AddRecordsToLaLigaTable extends Command
 
         }
     }
-}       
+ 
