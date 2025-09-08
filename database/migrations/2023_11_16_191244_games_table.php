@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('referee')->nullable();
-            $table->string('stadium');
-            $table->string('city');
+            $table->string('stadium')->nullable();
+            $table->string('city')->nullable();
             $table->dateTime('date');
             $table->string('home_team_name');
             $table->string('home_team_logo');

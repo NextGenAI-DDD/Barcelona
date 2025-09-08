@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\LaLiga;
 
 use App\Http\Controllers\Controller;
-use App\Models\LaLigaTable;
+use App\Services\LaLigaService;
+
 class LaLigaTableController extends Controller
 {
+    public function __construct(
+        private readonly LaLigaService $laLigaService
+    ) {}
+
     /**
      * Display a listing of the resource.
      *
-     * @return
-     *
+     * @return \Illuminate\View\View
      */
     public function index()
     {
-        $leagueTableData = LaLigaTable::orderBy('rank', 'asc')->get();
+        $leagueTableData = $this->laLigaService->getAllTeams();
 
         return view('laliga.table', compact('leagueTableData'));
     }

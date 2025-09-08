@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'api_football' => [
+        'host' => env('API_KEY_HOST_FOR_API_FOOTBALL'),
+        'key' => env('AUTHORIZATION_KEY_FOR_API_FOOTBALL'),
+    ],
 ];
