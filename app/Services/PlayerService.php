@@ -93,9 +93,11 @@ readonly class PlayerService
         }
         
         return DB::transaction(function () use ($players) {
-            // Wyczyść istniejące dane
+            // Wyczyść istniejące dane - tymczasowo wyłączamy sprawdzanie foreign key
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
             PlayerBarcelonaStats::truncate();
             Player::truncate();
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
             
             $syncedCount = 0;
             
