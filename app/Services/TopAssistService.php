@@ -161,6 +161,6 @@ readonly class TopAssistService
      */
     private function getCurrentSeason(): int
     {
-        return (int) date('Y');
+        return (int) date('Y') - 1;
     }
 }
