@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @livewireStyles
 
     <!-- CSRF Token -->
     <link rel="icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
@@ -25,6 +26,7 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
     @vite(['resources/js/app.js'])
+
 </head>
 <body>
 <!-- Spinner Start -->
@@ -133,5 +135,6 @@
 </button>
 @include('includes.footer')
 @stack('scripts')
+@livewireScripts
 </body>
 </html>
