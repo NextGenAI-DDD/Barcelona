@@ -23,6 +23,8 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
     @vite(['resources/js/app.js'])
+    {{-- Livewire styles --}}
+    @livewireStyles
 </head>
 <body>
 <!-- Spinner Start -->
@@ -139,6 +141,7 @@
 >
     <i class="fas fa-arrow-up"></i>
 </button>
-
+{{-- Livewire scripts --}}
+@livewireScripts
 </body>
 </html>
