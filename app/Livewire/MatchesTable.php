@@ -48,10 +48,6 @@ class MatchesTable extends Component
 
     public function render()
     {
-        return view('livewire.matches-table', [
-            'matches' => $this->matches,
-            'sortBy' => $this->sortBy,
-            'sortDirection' => $this->sortDirection,
-        ]);
+        return view('livewire.matches-table');
     }
 }

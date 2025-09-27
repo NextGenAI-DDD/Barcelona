@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+
 /**
  * Serwis do zarządzania danymi meczów FC Barcelony
  * 
@@ -36,12 +37,13 @@ readonly class GameService
      * Pobiera mecz po ID
      */
 
-     public function getMatches(?string $dateFilter, string $sortBy, string $sortDirection)
+
+public function getMatches(?string $dateFilter, string $sortBy, string $sortDirection)
 {
     $query = Game::query();
 
     if ($dateFilter) {
-        $query->where('date', '>=', $dateFilter);
+        $query->whereDate('date', '>=', $dateFilter);
     }
 
     return $query->orderBy($sortBy, $sortDirection)->get();
