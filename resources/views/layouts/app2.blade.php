@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @livewireStyles
 
     <!-- CSRF Token -->
     <link rel="icon" type="image/x-icon" href="storage/img/favicon.ico">
@@ -139,6 +140,6 @@
 >
     <i class="fas fa-arrow-up"></i>
 </button>
-
+@livewireScripts
 </body>
 </html>
