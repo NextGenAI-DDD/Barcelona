@@ -35,6 +35,18 @@ readonly class GameService
     /**
      * Pobiera mecz po ID
      */
+
+     public function getMatches(?string $dateFilter, string $sortBy, string $sortDirection)
+{
+    $query = Game::query();
+
+    if ($dateFilter) {
+        $query->where('date', '>=', $dateFilter);
+    }
+
+    return $query->orderBy($sortBy, $sortDirection)->get();
+}
+
     public function getGameById(int $id): ?Game
     {
         return Game::find($id);

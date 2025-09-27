@@ -8,28 +8,24 @@ use App\Services\GameService;
 class MatchesTable extends Component
 {
     public $matches = [];
-    public $dateFilter;
-    public $sortBy = 'date';
-    public $sortDirection = 'asc';
+    public ?string $dateFilter = null;
+    public string $sortBy = 'date';
+    public string $sortDirection = 'asc';
 
-    private GameService $gameService;
+    protected GameService $gameService;
 
-    public function boot(GameService $gameService)
+    public function mount(GameService $gameService)
     {
         $this->gameService = $gameService;
+        $this->loadMatches();
     }
 
-    public function mount()
+    public function updatedDateFilter(): void
     {
         $this->loadMatches();
     }
 
-    public function updatedDateFilter()
-    {
-        $this->loadMatches();
-    }
-
-    public function sortBy($field)
+    public function sortBy(string $field): void
     {
         if ($this->sortBy === $field) {
             $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
@@ -41,22 +37,21 @@ class MatchesTable extends Component
         $this->loadMatches();
     }
 
-    private function loadMatches()
+    private function loadMatches(): void
     {
-        $query = $this->gameService->getAllGames();
-
-        if ($this->dateFilter) {
-            $query = $query->where('date', 'like', $this->dateFilter . '%');
-        }
-
-        $this->matches = $query
-            ->sortBy([$this->sortBy => $this->sortDirection === 'asc' ? SORT_ASC : SORT_DESC])
-            ->values()
-            ->toArray();
+        $this->matches = $this->gameService->getMatches(
+            $this->dateFilter,
+            $this->sortBy,
+            $this->sortDirection
+        );
     }
 
     public function render()
     {
-        return view('livewire.matches-table');
+        return view('livewire.matches-table', [
+            'matches' => $this->matches,
+            'sortBy' => $this->sortBy,
+            'sortDirection' => $this->sortDirection,
+        ]);
     }
 }
