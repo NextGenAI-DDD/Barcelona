@@ -16,8 +16,6 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = $this->gameService->getAllGames();
-
-        return view('laliga.games', compact('games'));
+        return view('laliga.games');
     }
 }

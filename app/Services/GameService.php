@@ -38,12 +38,19 @@ readonly class GameService
      */
 
 
-public function getMatches(?string $dateFilter, string $sortBy, string $sortDirection)
+public function getMatches(?string $dateFilter, ?string $textFilter, string $sortBy, string $sortDirection)
 {
     $query = Game::query();
 
     if ($dateFilter) {
         $query->whereDate('date', '>=', $dateFilter);
+    }
+
+    if ($textFilter) {
+        $query->where(function($q) use ($textFilter) {
+            $q->where('home_team_name', 'LIKE', '%' . $textFilter . '%')
+              ->orWhere('away_team_name', 'LIKE', '%' . $textFilter . '%');
+        });
     }
 
     return $query->orderBy($sortBy, $sortDirection)->get();
