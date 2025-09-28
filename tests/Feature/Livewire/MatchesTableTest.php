@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Livewire;
 
-use App\Http\Livewire\MatchesTable;
+use App\Livewire\MatchesTable;
 use Tests\TestCase;
 
 class MatchesTableTest extends TestCase
