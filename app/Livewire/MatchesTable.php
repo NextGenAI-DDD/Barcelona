@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Services\GameService;
+use Illuminate\Validation\Rule;
 
 class MatchesTable extends Component
 {
@@ -31,7 +32,7 @@ class MatchesTable extends Component
         $this->loadMatches();
     }
 
-    public function sortBy(string $field): void
+    public function sortByDirection(string $field, string $direction): void
     {
         if ($this->sortBy === $field) {
             $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
