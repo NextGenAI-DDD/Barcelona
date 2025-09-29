@@ -21,6 +21,13 @@ class MatchesTable extends Component
         $this->gameService = $gameService;
         $this->loadMatches();
     }
+    
+    public function render()
+    {
+        // Always emit the current filtered matches when rendering
+        $this->dispatch('matchesUpdated', $this->filteredMatches);
+        return view('livewire.matches-table');
+    }
 
     public function updatedDateFilter(): void
     {
@@ -52,10 +59,5 @@ class MatchesTable extends Component
             $this->sortBy,
             $this->sortDirection
         );
-    }
-
-    public function render()
-    {
-        return view('livewire.matches-table');
     }
 }
