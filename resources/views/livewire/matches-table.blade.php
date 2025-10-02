@@ -2,9 +2,6 @@
     <!-- Filtrowanie i sortowanie -->
     <div class="row mb-4">
         <div class="col-md-6">
-            <label for="textFilter" class="form-label">
-                <i class="fas fa-search me-1"></i>Szukaj drużyny:
-            </label>
             <input type="text"
                    id="textFilter"
                    x-model="textFilter"
@@ -13,11 +10,8 @@
                    placeholder="Wpisz nazwę drużyny (np. Real, Barcelona, Valencia)">
         </div>
         <div class="col-md-6">
-            <label class="form-label">
-                <i class="fas fa-sort me-1"></i>Sortowanie (JavaScript - błyskawiczne):
-            </label>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="btn-group w-100" role="group">
                         <button type="button" 
                                 @click="sortMatches('date', 'asc')"
@@ -33,36 +27,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="dropdown">
-                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-sort-alpha-down me-1"></i>Więcej opcji
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                            <li><a class="dropdown-item" href="#" @click="sortMatches('home_team_name', 'asc')">
-                                <i class="fas fa-home me-2"></i>Drużyna gospodarza
-                            </a></li>
-                            <li><a class="dropdown-item" href="#" @click="sortMatches('away_team_name', 'asc')">
-                                <i class="fas fa-plane me-2"></i>Drużyna gości
-                            </a></li>
-                            <li><a class="dropdown-item" href="#" @click="sortMatches('league_name', 'asc')">
-                                <i class="fas fa-trophy me-2"></i>Liga
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Informacja o aktualnym sortowaniu -->
-    <div class="alert alert-info border-0 py-2 mb-3">
-        <small>
-            <i class="fas fa-info-circle me-1"></i>
-            Aktualnie sortowane po: <strong x-text="getSortLabel()"></strong>
-            (<span x-text="sortDirection === 'asc' ? 'rosnąco' : 'malejąco'"></span>)
-            - <span class="text-success"><i class="fas fa-lightning-bolt me-1"></i>JavaScript - natychmiastowe!</span>
-        </small>
     </div>
 
     <!-- Kartki z meczami - 2 w rzędzie -->
