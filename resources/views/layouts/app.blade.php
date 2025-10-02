@@ -135,6 +135,8 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 @include('includes.footer')
+{{-- Alpine.js --}}
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 {{-- Livewire scripts --}}
 @livewireScripts
 @stack('scripts')
