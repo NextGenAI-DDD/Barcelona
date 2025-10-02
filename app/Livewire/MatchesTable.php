@@ -9,26 +9,50 @@ use Illuminate\Validation\Rule;
 class MatchesTable extends Component
 {
     public $matches = [];
-    public ?string $dateFilter = null;
     public ?string $textFilter = null;
     public string $sortBy = 'date';
     public string $sortDirection = 'asc';
 
-    protected GameService $gameService;
-
-    public function mount(GameService $gameService)
-    {
-        $this->gameService = $gameService;
-        $this->loadMatches();
-    }
-
-    public function updatedDateFilter(): void
+    public function mount()
     {
         $this->loadMatches();
     }
 
     public function updatedTextFilter(): void
     {
+        $this->loadMatches();
+    }
+
+    public function sortBy(string $field): void
+    {
+        if ($this->sortBy === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortBy = $field;
+            $this->sortDirection = 'asc';
+        }
+
+        $this->loadMatches();
+    }
+
+    public function sortByDate($direction)
+    {
+        $this->sortBy = 'date';
+        $this->sortDirection = $direction;
+        $this->loadMatches();
+    }
+
+    public function sortOldest()
+    {
+        $this->sortBy = 'date';
+        $this->sortDirection = 'asc';
+        $this->loadMatches();
+    }
+
+    public function sortNewest()
+    {
+        $this->sortBy = 'date';
+        $this->sortDirection = 'desc';
         $this->loadMatches();
     }
 
@@ -46,8 +70,9 @@ class MatchesTable extends Component
 
     private function loadMatches(): void
     {
-        $this->matches = $this->gameService->getMatches(
-            $this->dateFilter,
+        $gameService = app(GameService::class);
+        $this->matches = $gameService->getMatches(
+            null, // brak filtrowania po dacie
             $this->textFilter,
             $this->sortBy,
             $this->sortDirection
