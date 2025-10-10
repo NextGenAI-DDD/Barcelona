@@ -7,7 +7,6 @@
     <!-- CSRF Token -->
     <link rel="icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
 
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -45,10 +44,10 @@
         </div>
         <div class="col-lg-5 px-5 text-end">
             <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/fcbarcelona/?locale2=pl_PL&paipv=0&eav=Afb2n5L1Tx-Mt3jgHGiTtzg09mMnoV8wj5UVSwcpIQZsAUtkFcYDSZy7hChMuobcaro&_rdr"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://twitter.com/FCBarcelona"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/in/adrian-kemski-7840b1251/"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/fcbarcelona/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -74,23 +73,23 @@
             <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}" data-bs-toggle="tooltip" data-bs-placement="top"
                data-bs-custom-class="custom-tooltip"
                data-bs-title="{{ __('Main Page') }}"><i class="fas fa-home fa-xl"></i></a>
-            <a href="/about" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }} mt-1" data-bs-toggle="tooltip" data-bs-placement="top"
+            <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }} mt-1" data-bs-toggle="tooltip" data-bs-placement="top"
                data-bs-custom-class="custom-tooltip"
-               data-bs-title="{{ __('Message') }}">
+               data-bs-title="{{ __('Contact Information') }}">
                 <div class="position-relative">
-                    <i class="fa-solid fa-message fa-xl"></i>
+                    <i class="fa-solid fa-envelope fa-xl"></i>
                     <span class="position-absolute top-0 start-4 translate-middle badge rounded-pill bg-info">
                             99+
                         <span class="visually-hidden">nieprzeczytane wiadomości</span>
                     </span>
                 </div>
             </a>
-            <a href="/service" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }} mt-1">
+            <a href="/players" class="nav-item nav-link {{ request()->is('players') ? 'active' : '' }} mt-1">
                 <div class="position-relative">
-                    <i class="fas fa-globe-americas fa-xl"></i>
+                    <i class="fas fa-users fa-xl"></i>
                         <span class="position-absolute top-0 start-4 translate-middle badge rounded-pill bg-success">
                             99+
-                            <span class="visually-hidden">nieprzeczytane wiadomości</span>
+                            <span class="visually-hidden">nowi zawodnicy</span>
                         </span>
                 </div>
             </a>
@@ -150,5 +149,6 @@
 @include('includes.footer')
 {{-- Livewire scripts --}}
 @livewireScripts
+@stack('scripts')
 </body>
 </html>

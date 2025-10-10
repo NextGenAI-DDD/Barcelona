@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <link rel="icon" type="image/x-icon" href="storage/img/favicon.ico">
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -89,10 +88,10 @@
 {{--                        @endguest--}}
 {{--                    </ul>--}}
 {{--                </div>--}}
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/fcbarcelona/?locale2=pl_PL&paipv=0&eav=Afb2n5L1Tx-Mt3jgHGiTtzg09mMnoV8wj5UVSwcpIQZsAUtkFcYDSZy7hChMuobcaro&_rdr"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://twitter.com/FCBarcelona"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/in/adrian-kemski-7840b1251/"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/fcbarcelona/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -108,21 +107,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Strona główna</a>
-            <a href="/about" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">O nas</a>
-            <a href="/players" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">Zawodnicy</a>
+            <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">{{ __('Main Page') }}</a>
+            <a href="/players" class="nav-item nav-link {{ request()->is('players') ? 'active' : '' }}">{{ __('Players') }}</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('404') ? 'active' : '' }}" data-bs-toggle="dropdown">Liga</a>
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('laLiga*') ? 'active' : '' }}" data-bs-toggle="dropdown">{{ __('League') }}</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="/table" class="dropdown-item">Tabela La Liga</a>
-                    <a href="/404" class="dropdown-item">Mecze</a>
+                    <a href="{{ route('laLiga.table') }}" class="dropdown-item">{{ __('La Liga Table') }}</a>
+                    <a href="{{ route('laLiga.games') }}" class="dropdown-item">{{ __('Games') }}</a>
+                    <a href="{{ route('laLiga.topScores') }}" class="dropdown-item">{{ __('Top Scores') }}</a>
+                    <a href="{{ route('laLiga.topAssistants') }}" class="dropdown-item">{{ __('Top Assistants') }}</a>
                 </div>
             </div>
-            <a href="/contact" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Kontakt</a>
+            <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">{{ __('Contact Information') }}</a>
             <a href="#" class="nav-link dropdown-toggle d-md-none d-sm-block" data-bs-toggle="dropdown"><i class="fa-solid fa-user"></i></a>
             <div class="dropdown-menu fade-up m-0">
-                <a href="{{ route('login') }}" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Zaloguj</a>
-                <a href="{{ route('register') }}" class="dropdown-item"><i class="fa-solid fa-house"></i> Zarejestruj</a>
+                <a href="{{ route('login') }}" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i>{{ __("Log in")  }}</a>
+                <a href="{{ route('register') }}" class="dropdown-item"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>
             </div>
         </div>
     </div>
@@ -141,7 +141,9 @@
 >
     <i class="fas fa-arrow-up"></i>
 </button>
+@include('includes.footer')
 {{-- Livewire scripts --}}
 @livewireScripts
+@stack('scripts')
 </body>
 </html>
