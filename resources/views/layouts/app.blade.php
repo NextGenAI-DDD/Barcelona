@@ -27,6 +27,7 @@
     @vite(['resources/js/app.js'])
     {{-- Livewire styles --}}
     @livewireStyles
+    
 
 </head>
 <body>
@@ -112,11 +113,57 @@
                 </div>
             </div>
             <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">{{ __('Contact Information') }}</a>
-{{--            <a href="#" class="nav-link dropdown-toggle d-md-none d-sm-block" data-bs-toggle="dropdown"><i class="fa-solid fa-user"></i></a>--}}
-{{--            <div class="dropdown-menu fade-up m-0">--}}
-{{--                <a href="{{ route('login') }}" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i>{{ __("Log in")  }}</a>--}}
-{{--                <a href="{{ route('register') }}" class="dropdown-item"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>--}}
-{{--            </div>--}}
+            
+            <!-- User dropdown -->
+            @auth
+            <div class="dropdown">
+                <a class="btn btn-sm-square nav-link d-sm-none" href="#" role="button" data-bs-toggle="dropdown">
+                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44" alt="" loading="lazy" />
+                </a>
+                <a class="btn btn-sm-square nav-link d-none d-sm-flex ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown">
+                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44"
+                         alt="" loading="lazy" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end me-2">
+                    <li class="ms-1">
+                        <a class="dropdown-item ms-1" href="#" style="all: unset;">
+                            <i class="fa-solid fa-user"></i> {{ Auth::user()->przydomek ?? Auth::user()->name }}({{ Auth::user()->id }})
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li class="ms-1">
+                        <a class="dropdown-item ms-1" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" style="all: unset;">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            @else
+            <div class="dropdown">
+                <a class="btn btn-sm-square bg-white text-primary me-1 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu fade-up m-0">
+                    @if (Route::has('login'))
+                        <li class="nav-item hover">
+                            <a class="nav-link text-align-center m-1" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>
+                        </li>
+                    @endif
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link m-1" href="{{ route('register') }}"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>
+                        </li>
+                    @endif
+                </ul>
+            </div>
+            @endauth
         </div>
     </div>
 </nav>
