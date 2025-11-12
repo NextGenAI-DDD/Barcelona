@@ -1,11 +1,7 @@
-// Import Alpine.js from local vendor file
-import Alpine from './vendor/alpine.min.js';
+// Load the bundled Alpine.js script (UMD build exposes window.Alpine)
+import './vendor/alpine.min.js';
 
-// Make Alpine available globally
-window.Alpine = Alpine;
-
-// Start Alpine.js
-Alpine.start();
+const Alpine = window.Alpine;
 
 export default Alpine;
 
