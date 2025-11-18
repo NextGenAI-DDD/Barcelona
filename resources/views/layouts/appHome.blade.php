@@ -22,8 +22,6 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
     @vite(['resources/js/app.js'])
-    {{-- Livewire styles --}}
-    @livewireStyles
 </head>
 <body>
 <!-- Spinner Start -->
@@ -93,40 +91,6 @@
                         </span>
                 </div>
             </a>
-            <!-- User -->
-            <div class="dropdown">
-                <a class="btn btn-sm-square nav-link d-sm-none" href="#" role="button" data-bs-toggle="dropdown">
-                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44" alt="" loading="lazy" />
-                </a>
-                <a class="btn btn-sm-square nav-link d-none d-sm-flex ms-3 me-3" href="#" role="button" data-bs-toggle="dropdown">
-                    <img @if (Auth::user()->avatar == NULL) src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" @else src="{{ asset('/storage/users/avatars/'.Auth::user()->avatar) }}" @endif class="rounded-circle" height="44"
-                         alt="" loading="lazy" />
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end me-2">
-                    <!-- Authentication Links -->
-                    @guest
-                    @else
-                        <li class="ms-1">
-                            <a class="dropdown-item ms-1" href="#" style="all: unset;">
-                                <i class="fa-solid fa-user"></i> {{ Auth::user()->przydomek.'('.Auth::user()->id.')' }}
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li class="ms-1">
-                            <a class="dropdown-item ms-1" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" style="all: unset;">
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i> {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
 
         </div>
     </div>
@@ -147,8 +111,6 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 @include('includes.footer')
-{{-- Livewire scripts --}}
-@livewireScripts
 @stack('scripts')
 </body>
 </html>

@@ -1,7 +1,10 @@
-$(document).ready(function() {
+import jQuery from 'jquery';
+import * as bootstrap from 'bootstrap';
+
+jQuery(function () {
 
     // Spinner
-    var spinner = $('#spinner');
+    const spinner = jQuery('#spinner');
     setTimeout(function() {
         spinner.removeClass('show');
     }, 1000);
@@ -35,7 +38,7 @@ $(document).ready(function() {
 
 //tooltip
 
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
 
 });

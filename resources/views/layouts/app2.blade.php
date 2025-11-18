@@ -22,8 +22,6 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
     @vite(['resources/js/app.js'])
-    {{-- Livewire styles --}}
-    @livewireStyles
 </head>
 <body>
 <!-- Spinner Start -->
@@ -48,46 +46,7 @@
                 <ul class="navbar-nav">
 
                 </ul>
-{{--                <div class="dropdown">--}}
-{{--                    <a class="btn btn-sm-square bg-white text-primary me-1 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">--}}
-{{--                        <i class="fa-solid fa-user"></i>--}}
-{{--                    </a>--}}
-{{--                    <ul class="dropdown-menu fade-up m-0">--}}
-{{--                        <!-- Authentication Links -->--}}
-{{--                        @guest--}}
-{{--                            @if (Route::has('login'))--}}
-{{--                                <li class="nav-item hover">--}}
 
-{{--                                    <a class="nav-link text-align-center m-1" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> {{ __('Login') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-
-{{--                            @if (Route::has('register'))--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link m-1" href="{{ route('register') }}"><i class="fa-solid fa-house"></i> {{ __('Register') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-{{--                        @else--}}
-{{--                            <li class="nav-item dropdown">--}}
-{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                    {{ Auth::user()->name }}--}}
-{{--                                </a>--}}
-
-{{--                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">--}}
-{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                                       onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
-
-{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                                        @csrf--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        @endguest--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
                 <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/fcbarcelona/?locale2=pl_PL&paipv=0&eav=Afb2n5L1Tx-Mt3jgHGiTtzg09mMnoV8wj5UVSwcpIQZsAUtkFcYDSZy7hChMuobcaro&_rdr"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-sm-square bg-white text-primary me-1" href="https://twitter.com/FCBarcelona"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/in/adrian-kemski-7840b1251/"><i class="fab fa-linkedin-in"></i></a>
@@ -142,8 +101,6 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 @include('includes.footer')
-{{-- Livewire scripts --}}
-@livewireScripts
 @stack('scripts')
 </body>
 </html>
