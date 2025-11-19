@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const socialLinks = [
     { href: 'https://twitter.com/FCBarcelona', icon: 'fab fa-twitter' },
     {
@@ -16,14 +18,14 @@ const Footer = () => {
       <div className="container py-5">
         <div className="row g-5">
           <div className="col-lg-4">
-            <h4 className="text-light mb-4">Kontakt</h4>
+            <h4 className="text-light mb-4">{t('footer.contactHeading')}</h4>
             <p className="mb-2">
               <i className="fa fa-envelope me-3" />
               barcelona.info@gmail.com
             </p>
           </div>
           <div className="col-lg-4">
-            <h4 className="text-light mb-4">Linki do innych społeczności powiązanych z Barceloną</h4>
+            <h4 className="text-light mb-4">{t('footer.communityHeading')}</h4>
             <div className="d-flex pt-2">
               {socialLinks.map((link) => (
                 <a key={link.href} className="btn btn-outline-light btn-social" href={link.href}>
@@ -42,7 +44,7 @@ const Footer = () => {
               <a className="border-bottom" href="#">
                 Barcelona Fun Club
               </a>
-              , All Right Reserved.
+              , {t('footer.rightsReserved')}
             </div>
           </div>
         </div>

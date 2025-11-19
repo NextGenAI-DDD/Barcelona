@@ -14,8 +14,9 @@ const safeParseJSON = (value, fallback) => {
 export const getPageConfig = (dataset = {}) => {
   const page = dataset.page || 'welcome';
   const pageProps = safeParseJSON(dataset.pageProps, {});
+  const locale = dataset.locale || 'en';
 
-  return { page, pageProps };
+  return { page, pageProps, locale };
 };
 
 

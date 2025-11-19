@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const BRAND = {
   homeUrl: '/',
@@ -7,20 +8,20 @@ const BRAND = {
 };
 
 const NAV_LINKS = [
-  { href: '/', label: 'Main Page' },
-  { href: '/players', label: 'Players' },
+  { href: '/', labelKey: 'navbar.mainPage' },
+  { href: '/players', labelKey: 'navbar.players' },
   {
     dropdown: true,
-    label: 'League',
+    labelKey: 'navbar.league',
     matchPath: '/laLiga',
     items: [
-      { href: '/laLiga/table', label: 'La Liga Table' },
-      { href: '/laLiga/games', label: 'Games' },
-      { href: '/laLiga/topScores', label: 'Top Scores' },
-      { href: '/laLiga/topAssistants', label: 'Top Assistants' },
+      { href: '/laLiga/table', labelKey: 'navbar.laLigaTable' },
+      { href: '/laLiga/games', labelKey: 'navbar.games' },
+      { href: '/laLiga/topScores', labelKey: 'navbar.topScores' },
+      { href: '/laLiga/topAssistants', labelKey: 'navbar.topAssistants' },
     ],
   },
-  { href: '/contact', label: 'Contact Information' },
+  { href: '/contact', labelKey: 'navbar.contact' },
 ];
 
 const classNames = (...classes) => classes.filter(Boolean).join(' ');
@@ -64,12 +65,24 @@ const markActiveLinks = (links, currentPath) =>
   });
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const currentPath =
     typeof window !== 'undefined' ? trimTrailingSlash(window.location.pathname) : NAV_LINKS[0].href;
 
-  const links = useMemo(() => {
-    return markActiveLinks(NAV_LINKS, currentPath);
-  }, [currentPath]);
+  const normalizedLinks = useMemo(() => markActiveLinks(NAV_LINKS, currentPath), [currentPath]);
+
+  const links = useMemo(
+    () =>
+      normalizedLinks.map((link) => ({
+        ...link,
+        label: t(link.labelKey),
+        items: (link.items || []).map((item) => ({
+          ...item,
+          label: t(item.labelKey),
+        })),
+      })),
+    [normalizedLinks, t]
+  );
 
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-dark shadow p-0 bg-navbar">
@@ -98,13 +111,13 @@ const Navbar = () => {
           {links.map((link) => {
             if (link.dropdown) {
               return (
-                <div className="nav-item dropdown" key={link.label}>
+                <div className="nav-item dropdown" key={link.labelKey}>
                   <a href="#" className={classNames('nav-link dropdown-toggle', link.active && 'active')} data-bs-toggle="dropdown">
                     {link.label}
                   </a>
                   <div className="dropdown-menu fade-up m-0">
                     {(link.items || []).map((item) => (
-                      <a key={item.href} href={item.href} className="dropdown-item">
+                      <a key={item.labelKey} href={item.href} className="dropdown-item">
                         {item.label}
                       </a>
                     ))}
@@ -114,7 +127,7 @@ const Navbar = () => {
             }
 
             return (
-              <a key={link.href} href={link.href} className={classNames('nav-item nav-link', link.active && 'active')}>
+              <a key={link.labelKey} href={link.href} className={classNames('nav-item nav-link', link.active && 'active')}>
                 {link.label}
               </a>
             );

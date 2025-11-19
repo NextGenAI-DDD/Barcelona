@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
     @vite(['resources/js/app.jsx'])
 </head>
 <body>
-<div id="layout-root" data-page="welcome" data-page-props="{}"></div>
+<div id="layout-root" data-page="welcome" data-page-props="{}" data-locale="{{ app()->getLocale() }}"></div>
 @stack('scripts')
 </body>
 </html>

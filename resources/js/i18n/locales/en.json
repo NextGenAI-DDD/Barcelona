@@ -1,0 +1,24 @@
+{
+  "topbar": {
+    "tagline": "Barcelona Fan Club Poland"
+  },
+  "navbar": {
+    "mainPage": "Main Page",
+    "players": "Players",
+    "league": "League",
+    "laLigaTable": "La Liga Table",
+    "games": "Games",
+    "topScores": "Top Scores",
+    "topAssistants": "Top Assistants",
+    "contact": "Contact Information"
+  },
+  "footer": {
+    "contactHeading": "Contact",
+    "communityHeading": "Links to other Barcelona communities",
+    "rightsReserved": "All rights reserved."
+  },
+  "welcome": {
+    "carouselAlt": "Camp Nou stadium"
+  }
+}
+

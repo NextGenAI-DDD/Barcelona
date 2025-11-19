@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Topbar = () => {
+  const { t } = useTranslation();
   const socialLinks = [
     {
       href: 'https://www.facebook.com/fcbarcelona/?locale2=pl_PL&paipv=0&eav=Afb2n5L1Tx-Mt3jgHGiTtzg09mMnoV8wj5UVSwcpIQZsAUtkFcYDSZy7hChMuobcaro&_rdr',
@@ -16,7 +18,7 @@ const Topbar = () => {
       <div className="row gx-0 d-none d-lg-flex">
         <div className="col-lg-7 px-5 text-start">
           <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-            <small>Barcelona Fun Club Polska</small>
+            <small>{t('topbar.tagline')}</small>
           </div>
         </div>
         <div className="col-lg-5 px-5 text-end">
