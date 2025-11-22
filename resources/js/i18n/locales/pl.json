@@ -1,0 +1,24 @@
+{
+  "topbar": {
+    "tagline": "Barcelona Fun Club Polska"
+  },
+  "navbar": {
+    "mainPage": "Strona Główna",
+    "players": "Zawodnicy",
+    "league": "Liga",
+    "laLigaTable": "Tabela La Liga",
+    "games": "Mecze",
+    "topScores": "Najlepsi Strzelcy",
+    "topAssistants": "Najlepsi Asystenci",
+    "contact": "Informacje kontaktowe"
+  },
+  "footer": {
+    "contactHeading": "Kontakt",
+    "communityHeading": "Linki do innych społeczności powiązanych z Barceloną",
+    "rightsReserved": "Wszelkie prawa zastrzeżone."
+  },
+  "welcome": {
+    "carouselAlt": "Stadion"
+  }
+}
+
